@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chroma_db
+    ports:
+      - "8000:8000"  # Map port 8000 of the host to the container
+    volumes:
+      - /Users/hughstanway/Files/ComputerScience/Year3/FYP/chroma_db:/chroma/chroma  # Mount to local directory
+    environment:
+      - IS_PERSISTENT=TRUE  # Enable data persistence
+      - ANONYMIZED_TELEMETRY=TRUE  # Enable telemetry
+    restart: unless-stopped  
