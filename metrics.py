@@ -1,14 +1,20 @@
+'''
+This program loops through all .txt files in an input directory and it's
+sub-directories and inputs their contents into the vector database. It measures
+the execution time needed to make a query at each db size and writes the results 
+to a generated csv file
+'''
+
 import timeit
-import logging
 import chromadb
 import os
 import sys
 import csv
 from datetime import datetime
-from memory_profiler import memory_usage
+from pathlib import Path
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-COLLECTION_NAME = "metrics_test"
+COLLECTION_NAME = "POJ_DATASET_2"
 
 def query(path):
     try:
@@ -20,31 +26,18 @@ def query(path):
             n_results=5,
         )
 
-        # Get the results
-        print(results['ids'])
-
     except Exception as e:
-        _logger.error(f"Error querying collection: {e}")
-
-def measure_performance(func, *args, **kwargs):
-    mem_usage, result = memory_usage((func, args, kwargs), interval=0.1, retval=True)
-    max_mem_used = max(mem_usage)
-    exec_time = timeit.timeit(lambda: func(*args, **kwargs), number=1)
-    
-    return exec_time, max_mem_used
-
+        print(f"Error querying collection: {e}")
 
 if __name__=="__main__":
-    _logger = logging.getLogger()
-
     # Connect to the ChromaDB server
     client = chromadb.HttpClient(host='localhost', port=8000)
-
+    
     # Check if the collection exists
     if any(col.name == COLLECTION_NAME for col in client.list_collections()):
         client.delete_collection(COLLECTION_NAME)
-        _logger.info(f"Collection, '{COLLECTION_NAME}' existed and has been dropped.")
-
+        print(f"Collection, '{COLLECTION_NAME}' existed and has been dropped.")
+    
     # Create a fresh collection to test
     try:
         collection = client.create_collection(
@@ -56,48 +49,44 @@ if __name__=="__main__":
                 "hnsw:space": "cosine"
             },
         )
-        _logger.info("Collection created successfully.")
+        print("Collection created successfully.")
     except Exception as e:
-        _logger.error(f"Error creating collection: {e}")
+        print(f"Error creating collection: {e}")
 
     # Initialize CSV and write header
     timestamp = datetime.now().strftime("%Y:%m:%d_%H:%M")
     csv_filename = f'metrics/execution_times_{timestamp}.csv'
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(['Database Size', 'File Path', 'Execution Time (seconds)', 'Memory Usage (MiB)'])
+        csv_writer.writerow(['Database Size', 'File Path', 'Execution Time (seconds)'])
 
     # The first argument is a folder in which all snippets are stored.
     # Traverse the folder recursively and add all files to the collection, with the file path as the ID.
     path=sys.argv[1]
     db_size = 0
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            # Skip the README file as it is not a code snippet.
-            if file == "README.md":
-                continue
-            with open(os.path.join(root, file), 'r') as f:
-                _logger.info(f"Adding document: {os.path.join(root, file)}")
-                try:
+    directory = Path(path)
+    for file_path in directory.rglob('*'):
+        if file_path.is_file() and file_path.suffix == '.txt':
+            try:
+                print(f"[DB Size: {db_size + 1}] - Adding document: {file_path}")
+                with open(file_path, 'r') as f:
                     file_text = f.read()
-                    file_path = os.path.join(root, file)
 
                     # Add the document to the collection.
                     collection.add(
                         documents=[file_text],
-                        ids=[file_path]
+                        ids=[str(file_path)]
                     )
 
                     # Query the db for the document and time execution
-                    execution_time, memory_usage_mib = measure_performance(query, file_path)
-
+                    execution_time = timeit.timeit(lambda: query(file_path), number=1)
                     db_size = db_size + 1
 
                     with open(csv_filename, 'a', newline='') as csvfile:
                         csv_writer = csv.writer(csvfile)
-                        csv_writer.writerow([db_size, file_path, execution_time, memory_usage_mib])
+                        csv_writer.writerow([db_size, file_path, execution_time])
 
-                except RuntimeError as e:
-                    _logger.error(f"Error: {e}")
+            except Exception as e:
+                print(f"Error: {e}")
 
-    _logger.info("Indexing complete.")
+    print("Indexing complete.")
