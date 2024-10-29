@@ -9,6 +9,7 @@ and checks:
 
 import os
 import sys
+import csv
 import chromadb
 from pathlib import Path
 
@@ -25,12 +26,11 @@ def check_match(query: list[str], res: list[str]) -> bool:
 
 def run():
     path=sys.argv[1]
-    hits, misses, times_not_returing_itself, counter = 0, 0, 0, 1
+    hits, misses, times_not_returing_itself, counter = 0, 0, 0, 0
     directory = Path(path)
     for file_path in directory.rglob('*'):
         if file_path.is_file() and file_path.suffix == '.txt':
             try:
-                print(f"[DB Size: {counter}] - Query for document {file_path}")
                 with open(file_path, 'r') as f:
                     file_text = f.read()  
 
@@ -55,10 +55,16 @@ def run():
                         misses += 1    
 
                 counter += 1
+
+                print(f"[DB Size: {counter}] - Hits: {hits}, Misses: {misses}, Times not returning itself: {times_not_returing_itself}")
+
             except Exception as e:
                 print(f"Error: {e}")
 
-            return
+    with open("metrics/false_positives.csv", 'a', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(["hits", "misses", "times not returing itself"])
+        csv_writer.writerow([hits, misses, times_not_returing_itself])
 
 if __name__=="__main__":
     run()

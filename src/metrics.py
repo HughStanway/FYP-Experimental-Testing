@@ -12,9 +12,11 @@ import sys
 import csv
 from datetime import datetime
 from pathlib import Path
+import chromadb.utils.embedding_functions as embedding_functions
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-COLLECTION_NAME = "POJ_DATASET_2"
+COLLECTION_NAME = "POJ_DATASET_ollama"
+EMBED_MODEL = "llama3.2"
 
 def query(path):
     try:
@@ -32,6 +34,11 @@ def query(path):
 if __name__=="__main__":
     # Connect to the ChromaDB server
     client = chromadb.HttpClient(host='localhost', port=8000)
+
+    ollama_ef = embedding_functions.OllamaEmbeddingFunction(
+        url="http://localhost:11434/api/embeddings",
+        model_name=EMBED_MODEL,
+    )
     
     # Check if the collection exists
     if any(col.name == COLLECTION_NAME for col in client.list_collections()):
@@ -42,6 +49,7 @@ if __name__=="__main__":
     try:
         collection = client.create_collection(
             name=COLLECTION_NAME,
+            embedding_function=ollama_ef,
             metadata={
                 # The number of neighbors to consider during search.
                 # The default is too low for deterministic results.
