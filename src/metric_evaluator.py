@@ -7,7 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-FILENAME = "execution_times_2024:10:27_17:44.csv"
+FILENAME = "execution_times_2024:10:29_11:07.csv"
 REMOVE_OUTLIERS = False
 
 # Read the CSV file into a pandas DataFrame

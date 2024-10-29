@@ -15,7 +15,7 @@ from pathlib import Path
 import chromadb.utils.embedding_functions as embedding_functions
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-COLLECTION_NAME = "POJ_DATASET_ollama"
+COLLECTION_NAME = "metrics_test_ollama"
 EMBED_MODEL = "llama3.2"
 
 def query(path):
@@ -74,7 +74,8 @@ if __name__=="__main__":
     db_size = 0
     directory = Path(path)
     for file_path in directory.rglob('*'):
-        if file_path.is_file() and file_path.suffix == '.txt':
+        #if file_path.is_file() and file_path.suffix == '.txt':
+        if file_path.is_file():
             try:
                 print(f"[DB Size: {db_size + 1}] - Adding document: {file_path}")
                 with open(file_path, 'r') as f:
