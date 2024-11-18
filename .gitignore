@@ -2,3 +2,4 @@ data/
 truth/
 ProgramData/
 chroma_db/
+embedding_cache/

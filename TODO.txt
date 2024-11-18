@@ -1,0 +1,16 @@
+Query collection:
+
+- ProgramData default embedding model and time query using file text as parameter - DONE - execution_times_2024:11:08_09:33.csv
+- ProgramData pre-embed using ollama and time query using embeddings as parameter - DONE - execution_times_2024:11:07_17:17.csv
+- ProgramData pre-embed using Jina embedding model and time query using embeddings as parameter - DONE - execution_times_2024:11:15_20:53.csv
+
+Add to collection:
+
+- ProgramData read then time add to collection using default method (file text) - DONE - execution_times_2024:11:08_13:03.csv
+- ProgramData embed using ollama then time add to collection using calculating embedding - DONE - execution_times_2024:11:08_17:12.csv
+- ProgramData embed using Jina embedding model then time add to collection using calculating embedding  - DONE - execution_times_2024:11:15_17:53.csv
+
+Other:
+
+7. time Read file text and add to collection using default model
+8. time Read file, pre-embed using ollama and add to collection using embedding
