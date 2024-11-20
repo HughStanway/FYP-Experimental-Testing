@@ -20,8 +20,8 @@ from pathlib import Path
 from ollama import Client 
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-COLLECTION_NAME = "POJ_DATASET_jina_embedding"
-EMBED_MODEL = "ordis/jina-embeddings-v2-base-code"
+COLLECTION_NAME = "POJ_DATASET_ollama_embedding"
+EMBED_MODEL = "llama3.2"
 
 cache = dc.Cache('embedding_cache')
 client = chromadb.HttpClient(host='localhost', port=8000)
@@ -66,7 +66,7 @@ def query_using_embeddings(file_text):
         print(f"Embedding time: {elapsed_time}")
         results = collection.query(
             query_embeddings=embeddings,
-            n_results=15,
+            n_results=5,
         )
         return results
 

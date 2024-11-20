@@ -1,0 +1,13 @@
+embedding model, context window size, mean average precision
+ordis/jina-embeddings-v2-base-code,8192,0.9641401883527632
+ordis/jina-embeddings-v2-base-code,6144,0.9642261182063653
+ordis/jina-embeddings-v2-base-code,4096,0.9641769581322558
+ordis/jina-embeddings-v2-base-code,2048,0.9640466127360846
+ordis/jina-embeddings-v2-base-code,1024,0.9642218305660948
+ordis/jina-embeddings-v2-base-code,512,0.9689686061659394
+ordis/jina-embeddings-v2-base-code,256,0.95480253541873
+ordis/jina-embeddings-v2-base-code,128,0.9166400806763015
+ordis/jina-embeddings-v2-base-code,64,0.8784635660442663
+ordis/jina-embeddings-v2-base-code,32,0.8664778651768288
+ordis/jina-embeddings-v2-base-code,16,0.7831684467116874
+ordis/jina-embeddings-v2-base-code,8,0.2745149992188671

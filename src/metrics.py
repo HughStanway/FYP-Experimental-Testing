@@ -20,14 +20,14 @@ import diskcache as dc
 from datetime import datetime
 from pathlib import Path
 from ollama import Client 
+import tracemalloc
 
-COLLECTION_NAME = sys.argv[2]
+COLLECTION_NAME = "POJ_DATASET_memory_test"
 EMBED_MODEL = "ordis/jina-embeddings-v2-base-code"
 COSINE_SEACH_N = 100
 
 cache = dc.Cache('embedding_cache')
 client = chromadb.HttpClient(host='localhost', port=8000)
-collection = client.get_collection(name=COLLECTION_NAME)
 ollama_client = Client(host='http://localhost:11434')
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -39,6 +39,14 @@ def compute_embedding(file_text, embed_model):
     embeddings = ollama_client.embed(model=embed_model, input=file_text)['embeddings']
     cache[hashed_key] = embeddings
     return embeddings
+
+def measure_memory_usage(func, *args, **kwargs):
+    tracemalloc.start()
+    result = func(*args, **kwargs)
+    current, peak = tracemalloc.get_traced_memory() # in bytes
+    tracemalloc.stop()
+
+    return result, peak
 
 def query(file_text):
     try:
@@ -80,33 +88,6 @@ def add_to_collection_using_embeddings(embeddings):
     except Exception as e:
         print(f"Error querying collection: {e}")
 
-def check_false_positive(query_path, result_paths, result_distances):
-    min_distance = result_distances[0]
-    min_distance_indices = [i for i, distance in enumerate(result_distances) if distance == min_distance]
-    
-    for index in min_distance_indices:
-        if result_paths[index] == query_path:
-            return True # No false positive, the query path is among the closest matches
-    
-    return False # False positive detected, the closest matches do not include the query path
-
-def false_positive_check(result):
-    misses = 0
-    result_paths = result["ids"][0]
-    result_distances =  result["distances"][0]
-
-    if not check_false_positive(str(file_path), result_paths, result_distances):
-        misses = 1
-    
-        with open("metrics/false_positives2.csv", 'a', newline='') as csvfile:
-            csv_writer = csv.writer(csvfile)
-            csv_writer.writerow([" "])
-            csv_writer.writerow(["file: ", str(file_path)])
-            csv_writer.writerow(["ids: ", result["ids"][0]])
-            csv_writer.writerow(["distances: ", result["distances"][0]])
-
-    return misses
-
 if __name__=="__main__":
     # Check if the collection exists
     if any(col.name == COLLECTION_NAME for col in client.list_collections()):
@@ -129,11 +110,11 @@ if __name__=="__main__":
         print(f"Error creating collection: {e}")
 
     # Initialize CSV and write header to record results to
-    timestamp = datetime.now().strftime("%Y:%m:%d_%H:%M")
-    csv_filename = f'metrics/execution_times/execution_times_{timestamp}.csv'
+    timestamp = datetime.now().strftime("%Y:%m:%d")
+    csv_filename = f'metrics/memory_usage/memory_usage_{timestamp}-{EMBED_MODEL.replace("/", "-")}.csv'
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(['Database Size', 'File Path', 'Execution Time (seconds)'])
+        csv_writer.writerow(['Database Size', 'File Path', 'Memory Usage (MB)'])
 
     # The first argument is a folder in which all snippets are stored.
     # Traverse the folder recursively and add all files to the collection, with the file path as the ID.
@@ -154,16 +135,17 @@ if __name__=="__main__":
                 print(f"Embedding time: {elapsed_time}")
                 
                 # Query the db for the document and time execution
-                execution_time = timeit.timeit(lambda: query_using_embeddings(embeddings=embeddings), number=1)
-                db_size = db_size + 1
+                #execution_time = timeit.timeit(lambda: query_using_embeddings(embeddings=embeddings), number=1)
+                result, memory_used = measure_memory_usage(add_to_collection_using_embeddings, embeddings)
 
                 with open(csv_filename, 'a', newline='') as csvfile:
                     csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow([db_size, file_path, execution_time])
+                    csv_writer.writerow([db_size, file_path, memory_used])
 
                 db_size += 1
 
             except Exception as e:
                 print(f"Error: {e}")
 
+    print(f"Collection size: {collection.count()}")
     print("Indexing complete.")
