@@ -10,20 +10,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Define a list of filenames
-FILENAMES = ["execution_times_2024:11:08_09:33.csv",
-             "execution_times_2024:11:07_17:17.csv",
-             "execution_times_2024:11:15_20:53.csv"]
+FILENAMES = ["memory_usage_2024:11:20-default-query.csv",
+             "memory_usage_2024:11:20-llama3.2-query.csv",
+             "memory_usage_2024:11:20-ordis-jina-embeddings-v2-base-code-query.csv"]
 
 DESCRIPTIONS = ["Query collection using default embedding",
-                "Pre-embed and query using llama2.3 embedding",
-                "Pre-embed and query using jina-embeddings-v2-base-code embedding"]
+                "Pre-embed and query collection using llama2.3 embedding",
+                "Pre-embed and query collection using jina-embeddings-v2-base-code embedding"]
 REMOVE_OUTLIERS = False
 
 num_files = len(FILENAMES)
 fig, axes = plt.subplots(1, num_files, figsize=(8 * num_files, 6), sharey=True)
 
 for i, filename in enumerate(FILENAMES):
-    csv_filename = f"metrics/execution_times/{filename}"
+    csv_filename = f"metrics/memory_usage/{filename}"
     df = pd.read_csv(csv_filename)
 
     # Optinally filter out the outliers for execution time
@@ -36,10 +36,10 @@ for i, filename in enumerate(FILENAMES):
 
     # Extract the data for plotting execution time
     x_execution = df['Database Size']
-    y_execution = df['Execution Time (seconds)']
+    y_execution = df['Memory Usage (bytes)']
 
     # Plot the execution time points on the current subplot
-    axes[i].scatter(x_execution, y_execution, color='blue', label='Data Points')
+    axes[i].scatter(x_execution, y_execution, color='green', label='Data Points')
 
     # Calculate the line of best fit for execution time
     slope_execution, intercept_execution = np.polyfit(x_execution, y_execution, 1)
