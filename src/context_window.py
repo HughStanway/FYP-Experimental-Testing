@@ -18,7 +18,7 @@ cache = dc.Cache('embedding_cache')
 client = chromadb.HttpClient(host='localhost', port=8000)
 ollama_client = Client(host='http://localhost:11434')
 
-ctx_window_sizes = [256, 128, 64, 32, 16, 8]
+ctx_window_sizes = [8192, 6144, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8]
 
 def compute_embedding(file_text, embed_model, ctx_window):
     key = f"{file_text}-{embed_model}-{ctx_window}"

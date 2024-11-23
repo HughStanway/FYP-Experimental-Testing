@@ -1,0 +1,3 @@
+embedding model, dataset, mean average precision
+llama3.2,ProgramData,0.8820472623892271
+ordis/jina-embeddings-v2-base-code,ProgramData,0.9633970601458185

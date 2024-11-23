@@ -10,12 +10,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Define a list of filenames
-FILENAMES = ["memory_usage_2024:11:20-default-query.csv",
-             "memory_usage_2024:11:20-llama3.2-query.csv",
-             "memory_usage_2024:11:20-ordis-jina-embeddings-v2-base-code-query.csv"]
+FILENAMES = ["memory_usage_milvus_2024:11:21-llama3.2-query.csv",
+             "memory_usage_milvus_2024:11:21-ordis-jina-embeddings-v2-base-code-query.csv",]
 
-DESCRIPTIONS = ["Query collection using default embedding",
-                "Pre-embed and query collection using llama2.3 embedding",
+DESCRIPTIONS = ["Pre-embed and query collection using llama2.3 embedding",
                 "Pre-embed and query collection using jina-embeddings-v2-base-code embedding"]
 REMOVE_OUTLIERS = False
 
@@ -37,7 +35,6 @@ for i, filename in enumerate(FILENAMES):
     # Extract the data for plotting execution time
     x_execution = df['Database Size']
     y_execution = df['Memory Usage (bytes)']
-
     # Plot the execution time points on the current subplot
     axes[i].scatter(x_execution, y_execution, color='green', label='Data Points')
 
@@ -61,7 +58,7 @@ for i, filename in enumerate(FILENAMES):
     axes[i].grid(True)
 
 # Set a common ylabel for all subplots
-axes[0].set_ylabel('Execution Time (seconds)')
+axes[0].set_ylabel('Memory Usage (bytes)')
 
 # Show the plot with multiple subplots
 plt.tight_layout()

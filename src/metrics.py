@@ -18,7 +18,6 @@ from pathlib import Path
 import chromadb
 import diskcache as dc
 from datetime import datetime
-from pathlib import Path
 from ollama import Client 
 import tracemalloc
 

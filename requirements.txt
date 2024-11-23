@@ -1,0 +1,6 @@
+pymilvus==2.4.9
+pathlib==1.0.1
+chromadb==0.5.20
+diskcache==5.6.3
+ollama==0.3.3
+matplotlib==3.9.2
