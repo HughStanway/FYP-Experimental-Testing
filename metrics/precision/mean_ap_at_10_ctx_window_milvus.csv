@@ -1,0 +1,13 @@
+Embegging Model, Context Window, Mean Average Precision
+ordis/jina-embeddings-v2-base-code,8192,0.9634909956489738
+ordis/jina-embeddings-v2-base-code,6144,0.963593810059816
+ordis/jina-embeddings-v2-base-code,4096,0.9634583326550001
+ordis/jina-embeddings-v2-base-code,2048,0.9633661111565368
+ordis/jina-embeddings-v2-base-code,1024,0.9635880475548483
+ordis/jina-embeddings-v2-base-code,512,0.9687390887672794
+ordis/jina-embeddings-v2-base-code,256,0.9542361003062223
+ordis/jina-embeddings-v2-base-code,128,0.9159806587319531
+ordis/jina-embeddings-v2-base-code,64,0.8770567167815867
+ordis/jina-embeddings-v2-base-code,32,0.8643320415915168
+ordis/jina-embeddings-v2-base-code,16,0.7783392995743359
+ordis/jina-embeddings-v2-base-code,8,0.30012780179078496

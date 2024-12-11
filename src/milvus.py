@@ -2,9 +2,8 @@
 
 '''
 This program loops through all .txt files in an input directory and it's
-sub-directories and inputs their contents into the vector database. It measures
-the execution time needed to make a query at each db size and writes the results 
-to a generated csv file
+sub-directories and inputs their contents into the vector database. It then
+runs various experiments designed to test the scalability of the database
 '''
 
 import os
@@ -17,11 +16,11 @@ import diskcache as dc
 from ollama import Client 
 import tracemalloc
 from pymilvus import MilvusClient
+from rich import print
+from tqdm import tqdm
 
 COLLECTION_NAME = "POJ_DATASET_milvus_test"
 EMBED_MODEL = "ordis/jina-embeddings-v2-base-code"
-#EMBED_MODEL = "llama3.2"
-COSINE_SEACH_N = 100
 DIMENSION = 768
 
 cache = dc.Cache('embedding_cache')
@@ -29,12 +28,15 @@ client = MilvusClient(uri="http://localhost:19530")
 ollama_client = Client(host='http://localhost:11434')
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
-def compute_embedding(file_text, embed_model):
-    key = f"{file_text}-{embed_model}"
+ctx_window_sizes = [8192, 6144, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8]
+ks = [10, 50, 100, 300]
+
+def compute_embedding(file_text, embed_model, ctx_window):
+    key = f"{file_text}-{embed_model}-{ctx_window}"
     hashed_key = hashlib.sha256(key.encode()).hexdigest()
     if hashed_key in cache:
         return cache[hashed_key]
-    embeddings = ollama_client.embed(model=embed_model, input=file_text)['embeddings']
+    embeddings = ollama_client.embed(model=embed_model, input=file_text, options={"num_ctx": ctx_window})['embeddings']
     cache[hashed_key] = embeddings
     return embeddings
 
@@ -46,12 +48,12 @@ def measure_memory_usage(func, *args, **kwargs):
 
     return result, peak
 
-def query_using_embeddings(embeddings):
+def query_using_embeddings(embeddings, k):
     try:
         return client.search(
             collection_name=COLLECTION_NAME,
             data=[embeddings],
-            limit=10,
+            limit=k,
             search_params={"metric_type": "COSINE", "params": {}},
         )
 
@@ -89,81 +91,85 @@ def average_precision(query_path, results):
     # Average precision = mean of precision scores at ranks where relevant items appear
     return sum(precision_scores) / n_relevant
 
-
-
 if __name__=="__main__":
     path=sys.argv[1]
     directory = Path(path)
-    # Check if the collection exists
-    if any(col == COLLECTION_NAME for col in client.list_collections()):
-        client.drop_collection(collection_name=COLLECTION_NAME)
-        print(f"Collection, '{COLLECTION_NAME}' existed and has been dropped.")
-    
-    # Create a fresh collection to test
-    try:
-        client.create_collection(
-            collection_name=COLLECTION_NAME,
-            dimension=DIMENSION,
-            id_type="string",
-            max_length=512
-        )
-        print("Collection created successfully.")
-    except Exception as e:
-        print(f"Error creating collection: {e}")
 
-    counter = 0
-    for file_path in directory.rglob('*'):
-        if file_path.is_file() and file_path.suffix == '.txt':
-            try:
-                print(f"[DB Size: {counter}] - File Path: {str(file_path)}")
-                with open(file_path, 'r', encoding='iso8859-1') as f: 
-                    file_text = f.read()
+    for ctx_window in ctx_window_sizes:
+        print(f"[bold red][+] Building database for context window size: {ctx_window}[/bold red]")
+        
+        # Check if the collection exists
+        if any(col == COLLECTION_NAME for col in client.list_collections()):
+            client.drop_collection(collection_name=COLLECTION_NAME)
+            print(f"[yellow][-] Collection, '{COLLECTION_NAME}' existed and has been dropped.[/yellow]")
+        
+        # Create a fresh collection to test
+        try:
+            client.create_collection(
+                collection_name=COLLECTION_NAME,
+                dimension=DIMENSION,
+                id_type="string",
+                max_length=512
+            )
+            print(f"[yellow][-] New collection: {COLLECTION_NAME} created successfully.[/yellow]")
+        except Exception as e:
+            print(f"Error creating collection: {e}")
 
-                # Create embedding for text
-                start_time = time.time()
-                embeddings = compute_embedding(file_text, EMBED_MODEL).pop()
-                elapsed_time = time.time() - start_time
-                print(f"Embedding time: {elapsed_time}")
+        progress_bar = tqdm(total=52000, desc="Building database")
+        for file_path in directory.rglob('*'):
+            if file_path.is_file() and file_path.suffix == '.txt':
+                try:
+                    with open(file_path, 'r', encoding='iso8859-1') as f: 
+                        file_text = f.read()
 
-                client.insert(
-                    collection_name=COLLECTION_NAME,
-                    data={"id": str(file_path), "vector": embeddings}
-                )
+                    # Create embedding for text
+                    start_time = time.time()
+                    embeddings = compute_embedding(file_text, EMBED_MODEL, ctx_window).pop()
+                    elapsed_time = time.time() - start_time
 
-                counter += 1
-            except Exception as e:
-                print(f"Error: {e}")
-    
-    # The first argument is a folder in which all snippets are stored.
-    # Traverse the folder recursively and add all files to the collection, with the file path as the ID.
-    queries, total_ap = 0, 0.0
-    for file_path in directory.rglob('*'):
-        if file_path.is_file() and file_path.suffix == '.txt':
-            try:
-                with open(file_path, 'r', encoding='iso8859-1') as f: 
-                    file_text = f.read()
+                    client.insert(
+                        collection_name=COLLECTION_NAME,
+                        data={"id": str(file_path), "vector": embeddings}
+                    )
+                    
+                    progress_bar.set_postfix({"Embedding time": elapsed_time})
+                    progress_bar.update(1)
+                except Exception as e:
+                    print(f"Error adding to collection: {e}")
+        progress_bar.close()
+        
+        for k in ks:
+            print(f"[bold green]Calculating mAP @ {k} for ctx window size: {ctx_window}[/bold green]")
+            progress_bar = tqdm(total=52000, desc="Calculting mAP")
+            queries, total_ap = 0, 0.0
+            for file_path in directory.rglob('*'):
+                if file_path.is_file() and file_path.suffix == '.txt':
+                    try:
+                        with open(file_path, 'r', encoding='iso8859-1') as f: 
+                            file_text = f.read()
 
-                # Create embedding for text
-                start_time = time.time()
-                embeddings = compute_embedding(file_text, EMBED_MODEL).pop()
-                elapsed_time = time.time() - start_time
-                print(f"Embedding time: {elapsed_time}")
+                        # Create embedding for text
+                        start_time = time.time()
+                        embeddings = compute_embedding(file_text, EMBED_MODEL, ctx_window).pop()
+                        elapsed_time = time.time() - start_time
 
-                result = query_using_embeddings(embeddings=embeddings).pop()
-                total_ap += average_precision(str(file_path), result)
-                
-                queries += 1
-                print(f"[Num queries: {queries}] - Current mean AP: {total_ap / queries} - Path: {str(file_path)}")
+                        result = query_using_embeddings(embeddings=embeddings, k=k).pop()
+                        total_ap += average_precision(str(file_path), result)
+                        
+                        queries += 1
+                        progress_bar.set_postfix({"Current mAP": total_ap / queries})
+                        progress_bar.update(1)
 
-            except Exception as e:
-                print(f"Error: {e}")
+                    except Exception as e:
+                        print(f"Error: {e}")
+            progress_bar.close()
 
-    # Calculate mean average precision
-    mean_ap = total_ap / queries
-    print(f"Mean average precision at 10: {mean_ap}")
+            # Calculate mean average precision
+            mean_ap = total_ap / queries
+            print(f"mAP @ {k}: {mean_ap} for window size: {ctx_window}")
 
-    with open("metrics/precision/mean_ap_at_10_milvus.csv", 'a', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        csv_writer.writerow([EMBED_MODEL, path, mean_ap])
-
+            with open("metrics/precision/mean_ap_at_k_ctx_window_milvus.csv", 'a', newline='') as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerow([EMBED_MODEL, k, ctx_window, mean_ap])
+        
     print("Indexing complete.")

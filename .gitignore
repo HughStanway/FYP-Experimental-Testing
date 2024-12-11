@@ -3,3 +3,5 @@ truth/
 ProgramData/
 chroma_db/
 embedding_cache/
+.venv/
+nohup.out
