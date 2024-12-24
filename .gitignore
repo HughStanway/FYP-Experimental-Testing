@@ -1,7 +1,9 @@
 data/
 truth/
-ProgramData/
+GCJ2-4/
+POJ/
 chroma_db/
 embedding_cache/
 .venv/
 nohup.out
+src/__pycache__

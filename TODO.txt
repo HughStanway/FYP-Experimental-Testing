@@ -3,3 +3,9 @@ TDOD:
 Voyage AI
 meap@k 10, 50, 100, 300
 3rd Database
+
+Over Christmas:
+
+- Chroma, Milvus, Qdrant, Weaviate
+- Context window for jina across all databases
+- map at deafult k

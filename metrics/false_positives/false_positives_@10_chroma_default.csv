@@ -1,0 +1,290 @@
+ 
+file: ,ProgramData/59/673.txt
+ids: ,"['ProgramData/62/2370.txt', 'ProgramData/23/599.txt', 'ProgramData/37/340.txt', 'ProgramData/85/1912.txt', 'ProgramData/75/1008.txt', 'ProgramData/103/444.txt', 'ProgramData/77/1319.txt', 'ProgramData/17/750.txt', 'ProgramData/26/104.txt', 'ProgramData/23/367.txt']"
+distances: ,"[0.2013334035873413, 0.20347297191619873, 0.20694589614868164, 0.21013259887695312, 0.2105344533920288, 0.21147942543029785, 0.21428066492080688, 0.2143142819404602, 0.21465712785720825, 0.21488463878631592]"
+ 
+file: ,ProgramData/59/1140.txt
+ids: ,"['ProgramData/58/584.txt', 'ProgramData/59/905.txt', 'ProgramData/59/964.txt', 'ProgramData/59/1433.txt', 'ProgramData/59/906.txt', 'ProgramData/59/119.txt', 'ProgramData/85/2424.txt', 'ProgramData/59/1402.txt', 'ProgramData/59/241.txt', 'ProgramData/24/1486.txt']"
+distances: ,"[0.2488079071044922, 0.2553131580352783, 0.25742417573928833, 0.2578263282775879, 0.2615426182746887, 0.2621082663536072, 0.26221221685409546, 0.2623399496078491, 0.26373863220214844, 0.26415354013442993]"
+ 
+file: ,ProgramData/59/25.txt
+ids: ,"['ProgramData/37/482.txt', 'ProgramData/37/1150.txt', 'ProgramData/98/2397.txt', 'ProgramData/37/1009.txt', 'ProgramData/96/845.txt', 'ProgramData/37/1049.txt', 'ProgramData/100/1466.txt', 'ProgramData/45/92.txt', 'ProgramData/37/1556.txt', 'ProgramData/100/2220.txt']"
+distances: ,"[0.2022416591644287, 0.21285247802734375, 0.2193242311477661, 0.2208791971206665, 0.2211281657218933, 0.2216966152191162, 0.22220838069915771, 0.22222661972045898, 0.2222955822944641, 0.22341644763946533]"
+ 
+file: ,ProgramData/92/1084.txt
+ids: ,"['ProgramData/75/640.txt', 'ProgramData/9/603.txt', 'ProgramData/75/468.txt', 'ProgramData/22/222.txt', 'ProgramData/89/422.txt', 'ProgramData/89/817.txt', 'ProgramData/24/2546.txt', 'ProgramData/89/1290.txt', 'ProgramData/37/1653.txt', 'ProgramData/89/708.txt']"
+distances: ,"[0.26359283924102783, 0.2717363238334656, 0.27275902032852173, 0.2763841152191162, 0.27707552909851074, 0.28022056818008423, 0.2803688645362854, 0.28111547231674194, 0.2876521944999695, 0.2897499203681946]"
+ 
+file: ,ProgramData/92/1480.txt
+ids: ,"['ProgramData/92/528.txt', 'ProgramData/92/1098.txt', 'ProgramData/92/597.txt', 'ProgramData/76/1020.txt', 'ProgramData/35/141.txt', 'ProgramData/15/608.txt', 'ProgramData/92/1397.txt', 'ProgramData/76/1384.txt', 'ProgramData/76/608.txt', 'ProgramData/94/2104.txt']"
+distances: ,"[0.1857735514640808, 0.19176656007766724, 0.19536429643630981, 0.1974131464958191, 0.20205771923065186, 0.2023966908454895, 0.20246875286102295, 0.20463770627975464, 0.20529836416244507, 0.20544815063476562]"
+ 
+file: ,ProgramData/92/1402.txt
+ids: ,"['ProgramData/79/3781.txt', 'ProgramData/79/279.txt', 'ProgramData/79/3806.txt', 'ProgramData/79/3822.txt', 'ProgramData/2/76.txt', 'ProgramData/42/659.txt', 'ProgramData/2/946.txt', 'ProgramData/42/610.txt', 'ProgramData/94/453.txt', 'ProgramData/42/580.txt']"
+distances: ,"[0.21300041675567627, 0.2154773473739624, 0.22784805297851562, 0.24441379308700562, 0.24636781215667725, 0.25295495986938477, 0.25695306062698364, 0.2582521438598633, 0.2608789801597595, 0.26295167207717896]"
+ 
+file: ,ProgramData/66/117.txt
+ids: ,"['ProgramData/56/1599.txt', 'ProgramData/22/483.txt', 'ProgramData/22/889.txt', 'ProgramData/14/310.txt', 'ProgramData/33/2000.txt', 'ProgramData/96/1128.txt', 'ProgramData/22/727.txt', 'ProgramData/16/409.txt', 'ProgramData/36/1253.txt', 'ProgramData/16/403.txt']"
+distances: ,"[0.24603521823883057, 0.24644088745117188, 0.24804091453552246, 0.2582273483276367, 0.26459723711013794, 0.2662436366081238, 0.26779502630233765, 0.26809161901474, 0.2697499990463257, 0.2703965902328491]"
+ 
+file: ,ProgramData/66/273.txt
+ids: ,"['ProgramData/57/3188.txt', 'ProgramData/49/1194.txt', 'ProgramData/57/3332.txt', 'ProgramData/57/690.txt', 'ProgramData/57/1289.txt', 'ProgramData/57/186.txt', 'ProgramData/57/2509.txt', 'ProgramData/57/1079.txt', 'ProgramData/96/1252.txt', 'ProgramData/57/1469.txt']"
+distances: ,"[0.20157694816589355, 0.2082170844078064, 0.2205585241317749, 0.22312623262405396, 0.22774428129196167, 0.23135453462600708, 0.23247069120407104, 0.2330145239830017, 0.23379617929458618, 0.2339453101158142]"
+ 
+file: ,ProgramData/66/1501.txt
+ids: ,"['ProgramData/2/406.txt', 'ProgramData/2/230.txt', 'ProgramData/58/274.txt', 'ProgramData/2/778.txt', 'ProgramData/2/588.txt', 'ProgramData/37/1163.txt', 'ProgramData/2/798.txt', 'ProgramData/100/288.txt', 'ProgramData/2/800.txt', 'ProgramData/55/24.txt']"
+distances: ,"[0.11992543935775757, 0.12639302015304565, 0.1265939474105835, 0.13023513555526733, 0.13241547346115112, 0.13261258602142334, 0.1354438066482544, 0.13611865043640137, 0.14062631130218506, 0.14331978559494019]"
+ 
+file: ,ProgramData/104/1625.txt
+ids: ,"['ProgramData/42/726.txt', 'ProgramData/42/757.txt', 'ProgramData/94/632.txt', 'ProgramData/53/821.txt', 'ProgramData/4/2046.txt', 'ProgramData/6/3900.txt', 'ProgramData/38/919.txt', 'ProgramData/4/65.txt', 'ProgramData/10/994.txt', 'ProgramData/6/140.txt']"
+distances: ,"[0.21543282270431519, 0.2264174222946167, 0.22655493021011353, 0.22765302658081055, 0.22796154022216797, 0.22941404581069946, 0.2324354648590088, 0.23440629243850708, 0.23539769649505615, 0.23645257949829102]"
+ 
+file: ,ProgramData/104/1380.txt
+ids: ,"['ProgramData/104/945.txt', 'ProgramData/104/200.txt', 'ProgramData/104/124.txt', 'ProgramData/104/48.txt', 'ProgramData/104/1176.txt', 'ProgramData/76/608.txt', 'ProgramData/76/654.txt', 'ProgramData/104/602.txt', 'ProgramData/104/751.txt', 'ProgramData/64/1720.txt']"
+distances: ,"[0.20516812801361084, 0.20547819137573242, 0.22084927558898926, 0.22205567359924316, 0.22607463598251343, 0.22639620304107666, 0.22684717178344727, 0.22892194986343384, 0.2289683222770691, 0.22980386018753052]"
+ 
+file: ,ProgramData/104/976.txt
+ids: ,"['ProgramData/76/57.txt', 'ProgramData/35/392.txt', 'ProgramData/22/153.txt', 'ProgramData/22/215.txt', 'ProgramData/22/605.txt', 'ProgramData/63/1376.txt', 'ProgramData/22/57.txt', 'ProgramData/84/3190.txt', 'ProgramData/35/2266.txt', 'ProgramData/35/1887.txt']"
+distances: ,"[0.27370524406433105, 0.27461445331573486, 0.2814851999282837, 0.28986304998397827, 0.2915002107620239, 0.29599910974502563, 0.2975301742553711, 0.2978906035423279, 0.30154216289520264, 0.3017117381095886]"
+ 
+file: ,ProgramData/104/141.txt
+ids: ,"['ProgramData/65/740.txt', 'ProgramData/94/2785.txt', 'ProgramData/94/1701.txt', 'ProgramData/13/1629.txt', 'ProgramData/13/1100.txt', 'ProgramData/94/1322.txt', 'ProgramData/89/486.txt', 'ProgramData/76/1725.txt', 'ProgramData/13/1569.txt', 'ProgramData/94/2686.txt']"
+distances: ,"[0.1422625184059143, 0.14583706855773926, 0.1460534930229187, 0.1525259017944336, 0.1568913459777832, 0.15883022546768188, 0.1595172882080078, 0.16056084632873535, 0.1612878441810608, 0.16215085983276367]"
+ 
+file: ,ProgramData/104/1600.txt
+ids: ,"['ProgramData/7/899.txt', 'ProgramData/45/2509.txt', 'ProgramData/36/1384.txt', 'ProgramData/57/1440.txt', 'ProgramData/19/48.txt', 'ProgramData/45/1600.txt', 'ProgramData/49/1318.txt', 'ProgramData/45/2324.txt', 'ProgramData/45/1940.txt', 'ProgramData/45/1817.txt']"
+distances: ,"[0.17209935188293457, 0.1733272671699524, 0.17346006631851196, 0.18025261163711548, 0.18086659908294678, 0.1837928295135498, 0.192249596118927, 0.1978849172592163, 0.19813328981399536, 0.20255059003829956]"
+ 
+file: ,ProgramData/104/544.txt
+ids: ,"['ProgramData/15/1584.txt', 'ProgramData/92/699.txt', 'ProgramData/15/1308.txt', 'ProgramData/89/455.txt', 'ProgramData/89/1543.txt', 'ProgramData/102/146.txt', 'ProgramData/104/545.txt', 'ProgramData/74/416.txt', 'ProgramData/15/1330.txt', 'ProgramData/61/608.txt']"
+distances: ,"[0.17471003532409668, 0.1761210560798645, 0.1798163652420044, 0.18114393949508667, 0.18257206678390503, 0.18349647521972656, 0.1846151351928711, 0.18490463495254517, 0.18538033962249756, 0.18593978881835938]"
+ 
+file: ,ProgramData/68/816.txt
+ids: ,"['ProgramData/68/787.txt', 'ProgramData/68/327.txt', 'ProgramData/60/227.txt', 'ProgramData/60/293.txt', 'ProgramData/43/1040.txt', 'ProgramData/15/2137.txt', 'ProgramData/68/933.txt', 'ProgramData/43/298.txt', 'ProgramData/13/1162.txt', 'ProgramData/60/712.txt']"
+distances: ,"[0.14703553915023804, 0.1610431671142578, 0.17517465353012085, 0.1767204999923706, 0.17772382497787476, 0.17790645360946655, 0.178863525390625, 0.17975842952728271, 0.17986679077148438, 0.18048936128616333]"
+ 
+file: ,ProgramData/103/1231.txt
+ids: ,"['ProgramData/33/2443.txt', 'ProgramData/33/2706.txt', 'ProgramData/33/3366.txt', 'ProgramData/33/76.txt', 'ProgramData/33/992.txt', 'ProgramData/33/13.txt', 'ProgramData/19/1503.txt', 'ProgramData/7/95.txt', 'ProgramData/33/206.txt', 'ProgramData/33/962.txt']"
+distances: ,"[0.17032110691070557, 0.1748855710029602, 0.17664766311645508, 0.17665398120880127, 0.17747509479522705, 0.17874860763549805, 0.18201196193695068, 0.18282032012939453, 0.1830093264579773, 0.18311482667922974]"
+ 
+file: ,ProgramData/103/198.txt
+ids: ,"['ProgramData/100/2350.txt', 'ProgramData/100/1687.txt', 'ProgramData/36/214.txt', 'ProgramData/100/2368.txt', 'ProgramData/100/1818.txt', 'ProgramData/85/152.txt', 'ProgramData/55/1671.txt', 'ProgramData/100/2279.txt', 'ProgramData/55/25.txt', 'ProgramData/100/2057.txt']"
+distances: ,"[0.05329519510269165, 0.07660287618637085, 0.07762902975082397, 0.09408700466156006, 0.10744386911392212, 0.11262142658233643, 0.1296769380569458, 0.13044136762619019, 0.1466071605682373, 0.15854620933532715]"
+ 
+file: ,ProgramData/103/319.txt
+ids: ,"['ProgramData/96/573.txt', 'ProgramData/7/108.txt', 'ProgramData/85/1073.txt', 'ProgramData/58/626.txt', 'ProgramData/85/1881.txt', 'ProgramData/33/2581.txt', 'ProgramData/55/1070.txt', 'ProgramData/55/1418.txt', 'ProgramData/58/430.txt', 'ProgramData/103/351.txt']"
+distances: ,"[0.1688353419303894, 0.17153888940811157, 0.1726347804069519, 0.17267489433288574, 0.17535346746444702, 0.1770082712173462, 0.17760223150253296, 0.1776423454284668, 0.1817265748977661, 0.18211382627487183]"
+ 
+file: ,ProgramData/32/1044.txt
+ids: ,"['ProgramData/45/2413.txt', 'ProgramData/81/1313.txt', 'ProgramData/32/2314.txt', 'ProgramData/69/1267.txt', 'ProgramData/58/228.txt', 'ProgramData/58/227.txt', 'ProgramData/19/1748.txt', 'ProgramData/32/2185.txt', 'ProgramData/32/756.txt', 'ProgramData/32/1565.txt']"
+distances: ,"[0.20826119184494019, 0.20917296409606934, 0.21022498607635498, 0.21069252490997314, 0.21090644598007202, 0.21090644598007202, 0.21338623762130737, 0.2144293189048767, 0.2201564908027649, 0.22199904918670654]"
+ 
+file: ,ProgramData/32/2506.txt
+ids: ,"['ProgramData/45/1256.txt', 'ProgramData/49/259.txt', 'ProgramData/45/369.txt', 'ProgramData/7/339.txt', 'ProgramData/7/673.txt', 'ProgramData/45/2593.txt', 'ProgramData/37/1678.txt', 'ProgramData/45/661.txt', 'ProgramData/45/933.txt', 'ProgramData/24/25.txt']"
+distances: ,"[0.10827630758285522, 0.10870099067687988, 0.11058682203292847, 0.12234097719192505, 0.1237594485282898, 0.12409693002700806, 0.1266709566116333, 0.12797582149505615, 0.12858349084854126, 0.13111621141433716]"
+ 
+file: ,ProgramData/102/116.txt
+ids: ,"['ProgramData/102/281.txt', 'ProgramData/102/1377.txt', 'ProgramData/102/1313.txt', 'ProgramData/102/753.txt', 'ProgramData/102/280.txt', 'ProgramData/102/279.txt', 'ProgramData/102/158.txt', 'ProgramData/102/186.txt', 'ProgramData/102/1376.txt', 'ProgramData/102/153.txt']"
+distances: ,"[0.14951837062835693, 0.1504228115081787, 0.15070247650146484, 0.15164053440093994, 0.15877270698547363, 0.15928173065185547, 0.16576719284057617, 0.17058920860290527, 0.1718583106994629, 0.17252373695373535]"
+ 
+file: ,ProgramData/102/852.txt
+ids: ,"['ProgramData/100/1717.txt', 'ProgramData/33/1559.txt', 'ProgramData/33/1665.txt', 'ProgramData/85/1034.txt', 'ProgramData/85/1859.txt', 'ProgramData/5/1093.txt', 'ProgramData/85/1975.txt', 'ProgramData/85/2168.txt', 'ProgramData/5/515.txt', 'ProgramData/33/2179.txt']"
+distances: ,"[0.22551888227462769, 0.23655486106872559, 0.2370295524597168, 0.2372061014175415, 0.23763978481292725, 0.23783749341964722, 0.23884129524230957, 0.23971503973007202, 0.24018096923828125, 0.24057859182357788]"
+ 
+file: ,ProgramData/102/761.txt
+ids: ,"['ProgramData/76/771.txt', 'ProgramData/76/9.txt', 'ProgramData/74/1451.txt', 'ProgramData/35/995.txt', 'ProgramData/35/1881.txt', 'ProgramData/35/2443.txt', 'ProgramData/10/1280.txt', 'ProgramData/45/1644.txt', 'ProgramData/73/1563.txt', 'ProgramData/10/26.txt']"
+distances: ,"[0.21015185117721558, 0.210574209690094, 0.22316503524780273, 0.22460991144180298, 0.2247801423072815, 0.22502219676971436, 0.22618621587753296, 0.22860687971115112, 0.229384183883667, 0.23199355602264404]"
+ 
+file: ,ProgramData/56/466.txt
+ids: ,"['ProgramData/46/3257.txt', 'ProgramData/52/371.txt', 'ProgramData/46/3240.txt', 'ProgramData/4/1484.txt', 'ProgramData/90/609.txt', 'ProgramData/47/214.txt', 'ProgramData/52/4755.txt', 'ProgramData/90/2658.txt', 'ProgramData/53/1584.txt', 'ProgramData/4/151.txt']"
+distances: ,"[0.23960208892822266, 0.2396925687789917, 0.24322408437728882, 0.24376708269119263, 0.24403899908065796, 0.2441321611404419, 0.24499332904815674, 0.24604696035385132, 0.2471047043800354, 0.24734467267990112]"
+ 
+file: ,ProgramData/56/199.txt
+ids: ,"['ProgramData/34/2091.txt', 'ProgramData/34/964.txt', 'ProgramData/34/493.txt', 'ProgramData/15/622.txt', 'ProgramData/34/2403.txt', 'ProgramData/34/2470.txt', 'ProgramData/84/3414.txt', 'ProgramData/34/2527.txt', 'ProgramData/34/2216.txt', 'ProgramData/34/1940.txt']"
+distances: ,"[0.18500494956970215, 0.18739300966262817, 0.18946236371994019, 0.19184619188308716, 0.19246888160705566, 0.19489622116088867, 0.19734251499176025, 0.1983281373977661, 0.1991545557975769, 0.19935935735702515]"
+ 
+file: ,ProgramData/51/852.txt
+ids: ,"['ProgramData/2/1059.txt', 'ProgramData/51/894.txt', 'ProgramData/2/1099.txt', 'ProgramData/37/446.txt', 'ProgramData/7/926.txt', 'ProgramData/51/145.txt', 'ProgramData/51/514.txt', 'ProgramData/51/127.txt', 'ProgramData/51/812.txt', 'ProgramData/51/467.txt']"
+distances: ,"[0.13500720262527466, 0.13898110389709473, 0.1390179991722107, 0.14022153615951538, 0.1410173773765564, 0.14105427265167236, 0.14365065097808838, 0.14599251747131348, 0.14723092317581177, 0.14807891845703125]"
+ 
+file: ,ProgramData/51/62.txt
+ids: ,"['ProgramData/51/124.txt', 'ProgramData/51/778.txt', 'ProgramData/51/421.txt', 'ProgramData/51/118.txt', 'ProgramData/51/853.txt', 'ProgramData/51/267.txt', 'ProgramData/51/137.txt', 'ProgramData/51/136.txt', 'ProgramData/51/841.txt', 'ProgramData/51/493.txt']"
+distances: ,"[0.15656358003616333, 0.1569042205810547, 0.16324383020401, 0.16537153720855713, 0.16791093349456787, 0.16807293891906738, 0.16848009824752808, 0.16894280910491943, 0.17270439863204956, 0.17314046621322632]"
+ 
+file: ,ProgramData/51/157.txt
+ids: ,"['ProgramData/51/494.txt', 'ProgramData/51/771.txt', 'ProgramData/51/1063.txt', 'ProgramData/51/895.txt', 'ProgramData/51/41.txt', 'ProgramData/51/808.txt', 'ProgramData/51/399.txt', 'ProgramData/51/769.txt', 'ProgramData/51/1087.txt', 'ProgramData/51/174.txt']"
+distances: ,"[0.16239303350448608, 0.17091888189315796, 0.1710273027420044, 0.1711440086364746, 0.1715087890625, 0.18227899074554443, 0.1829925775527954, 0.18310320377349854, 0.1837453842163086, 0.186323881149292]"
+ 
+file: ,ProgramData/51/93.txt
+ids: ,"['ProgramData/37/1716.txt', 'ProgramData/7/1094.txt', 'ProgramData/28/1819.txt', 'ProgramData/36/1035.txt', 'ProgramData/49/45.txt', 'ProgramData/100/1859.txt', 'ProgramData/33/2630.txt', 'ProgramData/32/1982.txt', 'ProgramData/37/504.txt', 'ProgramData/57/262.txt']"
+distances: ,"[0.20279300212860107, 0.20493555068969727, 0.20965957641601562, 0.21305853128433228, 0.2139185070991516, 0.21544384956359863, 0.21645838022232056, 0.21681201457977295, 0.21702885627746582, 0.2187868356704712]"
+ 
+file: ,ProgramData/58/1292.txt
+ids: ,"['ProgramData/85/1103.txt', 'ProgramData/58/152.txt', 'ProgramData/58/997.txt', 'ProgramData/33/3311.txt', 'ProgramData/58/723.txt', 'ProgramData/85/285.txt', 'ProgramData/58/664.txt', 'ProgramData/33/2359.txt', 'ProgramData/33/746.txt', 'ProgramData/85/391.txt']"
+distances: ,"[0.016682982444763184, 0.19071805477142334, 0.19780021905899048, 0.20138508081436157, 0.20711809396743774, 0.20714497566223145, 0.20725858211517334, 0.20729833841323853, 0.2074373960494995, 0.20747774839401245]"
+ 
+file: ,ProgramData/58/10.txt
+ids: ,"['ProgramData/100/2432.txt', 'ProgramData/58/1185.txt', 'ProgramData/58/946.txt', 'ProgramData/58/690.txt', 'ProgramData/58/1283.txt', 'ProgramData/58/670.txt', 'ProgramData/58/633.txt', 'ProgramData/58/1134.txt', 'ProgramData/58/1143.txt', 'ProgramData/58/1031.txt']"
+distances: ,"[0.23241674900054932, 0.2335262894630432, 0.2348240613937378, 0.2363346815109253, 0.2366642951965332, 0.23988932371139526, 0.244642436504364, 0.24586063623428345, 0.2479724884033203, 0.25284039974212646]"
+ 
+file: ,ProgramData/67/908.txt
+ids: ,"['ProgramData/76/122.txt', 'ProgramData/84/392.txt', 'ProgramData/94/1762.txt', 'ProgramData/76/411.txt', 'ProgramData/3/1438.txt', 'ProgramData/84/393.txt', 'ProgramData/3/2098.txt', 'ProgramData/82/13.txt', 'ProgramData/3/1191.txt', 'ProgramData/76/417.txt']"
+distances: ,"[0.1720840334892273, 0.1755673885345459, 0.17652267217636108, 0.17654383182525635, 0.17728418111801147, 0.18134456872940063, 0.18368369340896606, 0.1838042140007019, 0.18436485528945923, 0.18439197540283203]"
+ 
+file: ,ProgramData/67/1108.txt
+ids: ,"['ProgramData/39/1762.txt', 'ProgramData/39/1410.txt', 'ProgramData/14/1418.txt', 'ProgramData/14/1442.txt', 'ProgramData/39/742.txt', 'ProgramData/39/254.txt', 'ProgramData/39/1440.txt', 'ProgramData/39/740.txt', 'ProgramData/21/1838.txt', 'ProgramData/39/114.txt']"
+distances: ,"[0.3697327971458435, 0.37211859226226807, 0.37780213356018066, 0.37962669134140015, 0.3811681270599365, 0.3813750147819519, 0.38171154260635376, 0.38193732500076294, 0.38473814725875854, 0.3860597610473633]"
+ 
+file: ,ProgramData/67/2005.txt
+ids: ,"['ProgramData/5/147.txt', 'ProgramData/5/803.txt', 'ProgramData/5/743.txt', 'ProgramData/5/658.txt', 'ProgramData/5/535.txt', 'ProgramData/5/354.txt', 'ProgramData/5/489.txt', 'ProgramData/5/1010.txt', 'ProgramData/5/448.txt', 'ProgramData/5/958.txt']"
+distances: ,"[0.27392858266830444, 0.2748405337333679, 0.2754557728767395, 0.27572762966156006, 0.27639561891555786, 0.27667534351348877, 0.2816733717918396, 0.2841618061065674, 0.28452014923095703, 0.2853877544403076]"
+ 
+file: ,ProgramData/67/2173.txt
+ids: ,"['ProgramData/25/781.txt', 'ProgramData/3/1396.txt', 'ProgramData/3/1438.txt', 'ProgramData/3/858.txt', 'ProgramData/3/2725.txt', 'ProgramData/3/2515.txt', 'ProgramData/82/13.txt', 'ProgramData/82/47.txt', 'ProgramData/3/3278.txt', 'ProgramData/3/1474.txt']"
+distances: ,"[0.19407200813293457, 0.19666916131973267, 0.19811493158340454, 0.19914376735687256, 0.19919222593307495, 0.19995886087417603, 0.2004510760307312, 0.200708270072937, 0.20157498121261597, 0.20166003704071045]"
+ 
+file: ,ProgramData/67/2470.txt
+ids: ,"['ProgramData/82/215.txt', 'ProgramData/82/1438.txt', 'ProgramData/82/432.txt', 'ProgramData/82/55.txt', 'ProgramData/82/185.txt', 'ProgramData/47/4732.txt', 'ProgramData/84/546.txt', 'ProgramData/84/602.txt', 'ProgramData/84/4126.txt', 'ProgramData/82/1251.txt']"
+distances: ,"[0.32245421409606934, 0.3261585235595703, 0.327068567276001, 0.3296758532524109, 0.3298885226249695, 0.32995176315307617, 0.3302367329597473, 0.33084821701049805, 0.33157026767730713, 0.3317692279815674]"
+ 
+file: ,ProgramData/67/1384.txt
+ids: ,"['ProgramData/76/417.txt', 'ProgramData/76/458.txt', 'ProgramData/76/411.txt', 'ProgramData/94/1949.txt', 'ProgramData/76/995.txt', 'ProgramData/76/766.txt', 'ProgramData/76/122.txt', 'ProgramData/21/1112.txt', 'ProgramData/94/1918.txt', 'ProgramData/76/423.txt']"
+distances: ,"[0.1617441177368164, 0.1668192744255066, 0.17117822170257568, 0.17479777336120605, 0.17892462015151978, 0.18139970302581787, 0.1815429925918579, 0.18160194158554077, 0.182888925075531, 0.1835460662841797]"
+ 
+file: ,ProgramData/67/399.txt
+ids: ,"['ProgramData/76/122.txt', 'ProgramData/65/1107.txt', 'ProgramData/46/569.txt', 'ProgramData/76/417.txt', 'ProgramData/3/490.txt', 'ProgramData/9/1184.txt', 'ProgramData/76/411.txt', 'ProgramData/3/3278.txt', 'ProgramData/94/1762.txt', 'ProgramData/76/458.txt']"
+distances: ,"[0.17068392038345337, 0.17662984132766724, 0.17751342058181763, 0.1780148148536682, 0.1783575415611267, 0.17890208959579468, 0.18026632070541382, 0.1826171875, 0.18493247032165527, 0.18564528226852417]"
+ 
+file: ,ProgramData/67/1579.txt
+ids: ,"['ProgramData/84/1271.txt', 'ProgramData/84/4091.txt', 'ProgramData/82/184.txt', 'ProgramData/82/215.txt', 'ProgramData/84/1426.txt', 'ProgramData/84/1851.txt', 'ProgramData/84/1633.txt', 'ProgramData/84/546.txt', 'ProgramData/82/224.txt', 'ProgramData/82/362.txt']"
+distances: ,"[0.16821706295013428, 0.17153996229171753, 0.17216777801513672, 0.1738150715827942, 0.17383891344070435, 0.1772339940071106, 0.1801348328590393, 0.18104147911071777, 0.1815146803855896, 0.1815812587738037]"
+ 
+file: ,ProgramData/67/1402.txt
+ids: ,"['ProgramData/47/4577.txt', 'ProgramData/47/4128.txt', 'ProgramData/13/1324.txt', 'ProgramData/94/629.txt', 'ProgramData/84/1421.txt', 'ProgramData/3/1303.txt', 'ProgramData/47/1270.txt', 'ProgramData/84/2300.txt', 'ProgramData/47/984.txt', 'ProgramData/25/601.txt']"
+distances: ,"[0.1904841661453247, 0.1932365894317627, 0.19467699527740479, 0.1952255368232727, 0.19543057680130005, 0.1965484619140625, 0.19686734676361084, 0.19829225540161133, 0.1985052227973938, 0.19859296083450317]"
+ 
+file: ,ProgramData/67/1629.txt
+ids: ,"['ProgramData/83/5711.txt', 'ProgramData/84/1757.txt', 'ProgramData/84/2764.txt', 'ProgramData/82/187.txt', 'ProgramData/82/449.txt', 'ProgramData/84/1901.txt', 'ProgramData/4/153.txt', 'ProgramData/82/2445.txt', 'ProgramData/82/2278.txt', 'ProgramData/83/5071.txt']"
+distances: ,"[0.17090970277786255, 0.1713051199913025, 0.1723015308380127, 0.17248380184173584, 0.17415857315063477, 0.17583155632019043, 0.17633056640625, 0.17844969034194946, 0.178805410861969, 0.17931991815567017]"
+ 
+file: ,ProgramData/67/1942.txt
+ids: ,"['ProgramData/10/1108.txt', 'ProgramData/10/319.txt', 'ProgramData/8/1022.txt', 'ProgramData/94/2144.txt', 'ProgramData/13/1745.txt', 'ProgramData/10/2087.txt', 'ProgramData/89/765.txt', 'ProgramData/10/285.txt', 'ProgramData/60/903.txt', 'ProgramData/89/1896.txt']"
+distances: ,"[0.1465018391609192, 0.14852643013000488, 0.15056771039962769, 0.1518152952194214, 0.15636616945266724, 0.15847164392471313, 0.1627752184867859, 0.16351032257080078, 0.16412508487701416, 0.164622962474823]"
+ 
+file: ,ProgramData/67/409.txt
+ids: ,"['ProgramData/73/866.txt', 'ProgramData/73/104.txt', 'ProgramData/73/99.txt', 'ProgramData/76/766.txt', 'ProgramData/73/1378.txt', 'ProgramData/73/712.txt', 'ProgramData/73/1584.txt', 'ProgramData/73/827.txt', 'ProgramData/25/1081.txt', 'ProgramData/73/894.txt']"
+distances: ,"[0.1835506558418274, 0.18355834484100342, 0.1869242787361145, 0.18812918663024902, 0.18924933671951294, 0.19651144742965698, 0.19786477088928223, 0.19944709539413452, 0.1994648575782776, 0.201277494430542]"
+ 
+file: ,ProgramData/67/1909.txt
+ids: ,"['ProgramData/84/392.txt', 'ProgramData/76/984.txt', 'ProgramData/84/393.txt', 'ProgramData/84/2936.txt', 'ProgramData/82/2533.txt', 'ProgramData/82/236.txt', 'ProgramData/82/2509.txt', 'ProgramData/82/2392.txt', 'ProgramData/82/1511.txt', 'ProgramData/76/1018.txt']"
+distances: ,"[0.20363235473632812, 0.20833545923233032, 0.21162766218185425, 0.2137889862060547, 0.2180282473564148, 0.2184997797012329, 0.2193884253501892, 0.2199152112007141, 0.22155576944351196, 0.2217956781387329]"
+ 
+file: ,ProgramData/67/1922.txt
+ids: ,"['ProgramData/3/1117.txt', 'ProgramData/29/1034.txt', 'ProgramData/3/2597.txt', 'ProgramData/29/1071.txt', 'ProgramData/3/2067.txt', 'ProgramData/29/1322.txt', 'ProgramData/3/3016.txt', 'ProgramData/99/1128.txt', 'ProgramData/52/1986.txt', 'ProgramData/76/1830.txt']"
+distances: ,"[0.23437988758087158, 0.2363659143447876, 0.2365667223930359, 0.2404075264930725, 0.2422194480895996, 0.2423182725906372, 0.24601507186889648, 0.24646782875061035, 0.2468612790107727, 0.24902433156967163]"
+ 
+file: ,ProgramData/67/2783.txt
+ids: ,"['ProgramData/10/1578.txt', 'ProgramData/10/1748.txt', 'ProgramData/10/1856.txt', 'ProgramData/89/202.txt', 'ProgramData/89/1631.txt', 'ProgramData/10/1810.txt', 'ProgramData/10/1749.txt', 'ProgramData/89/1881.txt', 'ProgramData/89/501.txt', 'ProgramData/10/389.txt']"
+distances: ,"[0.14048409461975098, 0.14975053071975708, 0.17068696022033691, 0.1719987392425537, 0.1740923523902893, 0.17923182249069214, 0.18306893110275269, 0.18951553106307983, 0.19115060567855835, 0.1947353482246399]"
+ 
+file: ,ProgramData/67/642.txt
+ids: ,"['ProgramData/84/1757.txt', 'ProgramData/82/187.txt', 'ProgramData/84/2764.txt', 'ProgramData/84/392.txt', 'ProgramData/84/1901.txt', 'ProgramData/82/449.txt', 'ProgramData/82/184.txt', 'ProgramData/82/2533.txt', 'ProgramData/82/96.txt', 'ProgramData/82/2278.txt']"
+distances: ,"[0.17545729875564575, 0.17688947916030884, 0.17905843257904053, 0.1795358657836914, 0.18089908361434937, 0.1825881004333496, 0.18301242589950562, 0.183086097240448, 0.18309688568115234, 0.1844891905784607]"
+ 
+file: ,ProgramData/33/2881.txt
+ids: ,"['ProgramData/33/11.txt', 'ProgramData/33/746.txt', 'ProgramData/33/252.txt', 'ProgramData/33/13.txt', 'ProgramData/33/423.txt', 'ProgramData/33/2363.txt', 'ProgramData/33/1221.txt', 'ProgramData/33/2970.txt', 'ProgramData/33/2427.txt', 'ProgramData/33/2346.txt']"
+distances: ,"[0.13502150774002075, 0.13579034805297852, 0.13756072521209717, 0.13852214813232422, 0.1424233317375183, 0.14295494556427002, 0.14609086513519287, 0.14787417650222778, 0.1483820676803589, 0.14992529153823853]"
+ 
+file: ,ProgramData/9/637.txt
+ids: ,"['ProgramData/74/1241.txt', 'ProgramData/60/1046.txt', 'ProgramData/13/1527.txt', 'ProgramData/13/1033.txt', 'ProgramData/13/708.txt', 'ProgramData/76/746.txt', 'ProgramData/13/1471.txt', 'ProgramData/13/728.txt', 'ProgramData/68/450.txt', 'ProgramData/13/1330.txt']"
+distances: ,"[0.23610550165176392, 0.24599826335906982, 0.24716311693191528, 0.24858397245407104, 0.24909061193466187, 0.253192663192749, 0.2539095878601074, 0.25457537174224854, 0.2549213171005249, 0.2550457715988159]"
+ 
+file: ,ProgramData/29/890.txt
+ids: ,"['ProgramData/29/576.txt', 'ProgramData/29/1076.txt', 'ProgramData/29/1093.txt', 'ProgramData/29/1344.txt', 'ProgramData/53/1575.txt', 'ProgramData/47/2018.txt', 'ProgramData/29/710.txt', 'ProgramData/29/1471.txt', 'ProgramData/29/1231.txt', 'ProgramData/29/1034.txt']"
+distances: ,"[0.18385910987854004, 0.18729829788208008, 0.19176089763641357, 0.19402915239334106, 0.20104384422302246, 0.20104670524597168, 0.20133012533187866, 0.20301949977874756, 0.20328038930892944, 0.203502357006073]"
+ 
+file: ,ProgramData/42/1281.txt
+ids: ,"['ProgramData/52/5178.txt', 'ProgramData/25/1169.txt', 'ProgramData/47/2377.txt', 'ProgramData/42/1433.txt', 'ProgramData/13/292.txt', 'ProgramData/13/230.txt', 'ProgramData/13/1684.txt', 'ProgramData/13/1276.txt', 'ProgramData/42/1402.txt', 'ProgramData/42/1486.txt']"
+distances: ,"[0.12198817729949951, 0.16953736543655396, 0.18473118543624878, 0.197273850440979, 0.21392273902893066, 0.21612459421157837, 0.21958929300308228, 0.21970993280410767, 0.2243906855583191, 0.22718733549118042]"
+ 
+file: ,ProgramData/45/352.txt
+ids: ,"['ProgramData/45/309.txt', 'ProgramData/45/1655.txt', 'ProgramData/45/823.txt', 'ProgramData/45/393.txt', 'ProgramData/45/1654.txt', 'ProgramData/45/434.txt', 'ProgramData/45/1763.txt', 'ProgramData/45/1692.txt', 'ProgramData/45/1739.txt', 'ProgramData/45/2445.txt']"
+distances: ,"[0.10592275857925415, 0.10838198661804199, 0.11578226089477539, 0.11864089965820312, 0.1207042932510376, 0.12096017599105835, 0.12522464990615845, 0.127488911151886, 0.1282515525817871, 0.12892818450927734]"
+ 
+file: ,ProgramData/74/422.txt
+ids: ,"['ProgramData/19/1176.txt', 'ProgramData/100/2166.txt', 'ProgramData/7/636.txt', 'ProgramData/100/610.txt', 'ProgramData/98/106.txt', 'ProgramData/7/1005.txt', 'ProgramData/37/1514.txt', 'ProgramData/36/35.txt', 'ProgramData/37/1740.txt', 'ProgramData/58/1193.txt']"
+distances: ,"[0.12259525060653687, 0.12669587135314941, 0.13011670112609863, 0.1309589147567749, 0.13253986835479736, 0.13375836610794067, 0.136915922164917, 0.13746798038482666, 0.1375216245651245, 0.13836669921875]"
+ 
+file: ,ProgramData/74/1265.txt
+ids: ,"['ProgramData/37/1514.txt', 'ProgramData/7/211.txt', 'ProgramData/49/334.txt', 'ProgramData/37/1374.txt', 'ProgramData/37/956.txt', 'ProgramData/45/2713.txt', 'ProgramData/100/1597.txt', 'ProgramData/7/542.txt', 'ProgramData/37/1586.txt', 'ProgramData/85/331.txt']"
+distances: ,"[0.18449795246124268, 0.18647146224975586, 0.19188332557678223, 0.19279193878173828, 0.19719552993774414, 0.19764304161071777, 0.1979835033416748, 0.1988949179649353, 0.19909846782684326, 0.19919365644454956]"
+ 
+file: ,ProgramData/6/2310.txt
+ids: ,"['ProgramData/3/2672.txt', 'ProgramData/3/1522.txt', 'ProgramData/3/2798.txt', 'ProgramData/72/1205.txt', 'ProgramData/72/1960.txt', 'ProgramData/3/2220.txt', 'ProgramData/3/1627.txt', 'ProgramData/3/2059.txt', 'ProgramData/3/1339.txt', 'ProgramData/3/1874.txt']"
+distances: ,"[0.12259936332702637, 0.13874536752700806, 0.14700931310653687, 0.14822834730148315, 0.14940381050109863, 0.14968711137771606, 0.150043785572052, 0.1519123911857605, 0.1519821286201477, 0.1530480980873108]"
+ 
+file: ,ProgramData/28/508.txt
+ids: ,"['ProgramData/23/77.txt', 'ProgramData/23/1128.txt', 'ProgramData/23/27.txt', 'ProgramData/7/995.txt', 'ProgramData/23/958.txt', 'ProgramData/23/172.txt', 'ProgramData/22/335.txt', 'ProgramData/103/1094.txt', 'ProgramData/17/1081.txt', 'ProgramData/23/889.txt']"
+distances: ,"[0.13503527641296387, 0.14235138893127441, 0.14468508958816528, 0.1447799801826477, 0.14625787734985352, 0.1480957269668579, 0.15408772230148315, 0.15498584508895874, 0.1562703251838684, 0.15662938356399536]"
+ 
+file: ,ProgramData/1/1042.txt
+ids: ,"['ProgramData/90/609.txt', 'ProgramData/90/1763.txt', 'ProgramData/61/1558.txt', 'ProgramData/61/1.txt', 'ProgramData/4/151.txt', 'ProgramData/53/824.txt', 'ProgramData/84/672.txt', 'ProgramData/47/214.txt', 'ProgramData/4/1036.txt', 'ProgramData/84/3568.txt']"
+distances: ,"[0.14458614587783813, 0.14881056547164917, 0.15086805820465088, 0.15138763189315796, 0.15469509363174438, 0.15634548664093018, 0.1571928858757019, 0.15744012594223022, 0.15986108779907227, 0.16008305549621582]"
+ 
+file: ,ProgramData/10/1693.txt
+ids: ,"['ProgramData/75/318.txt', 'ProgramData/9/880.txt', 'ProgramData/2/1119.txt', 'ProgramData/32/1822.txt', 'ProgramData/24/2643.txt', 'ProgramData/20/210.txt', 'ProgramData/9/1188.txt', 'ProgramData/58/727.txt', 'ProgramData/32/1491.txt', 'ProgramData/55/461.txt']"
+distances: ,"[0.2566729187965393, 0.26107174158096313, 0.2612687945365906, 0.26233118772506714, 0.2631145119667053, 0.2638850808143616, 0.2642286419868469, 0.2645477056503296, 0.26475685834884644, 0.26663005352020264]"
+ 
+file: ,ProgramData/10/1205.txt
+ids: ,"['ProgramData/76/417.txt', 'ProgramData/76/411.txt', 'ProgramData/76/458.txt', 'ProgramData/76/1027.txt', 'ProgramData/76/1716.txt', 'ProgramData/76/1099.txt', 'ProgramData/76/1680.txt', 'ProgramData/76/1468.txt', 'ProgramData/76/995.txt', 'ProgramData/82/388.txt']"
+distances: ,"[0.2003762125968933, 0.2036827802658081, 0.20582163333892822, 0.2090224027633667, 0.21093499660491943, 0.214427649974823, 0.2154024839401245, 0.21560174226760864, 0.21722495555877686, 0.22013670206069946]"
+ 
+file: ,ProgramData/44/741.txt
+ids: ,"['ProgramData/30/3330.txt', 'ProgramData/30/76.txt', 'ProgramData/30/3440.txt', 'ProgramData/30/548.txt', 'ProgramData/97/2024.txt', 'ProgramData/30/2851.txt', 'ProgramData/30/3340.txt', 'ProgramData/12/1503.txt', 'ProgramData/30/196.txt', 'ProgramData/30/2800.txt']"
+distances: ,"[0.21416032314300537, 0.2142859697341919, 0.21453320980072021, 0.21605443954467773, 0.2161005139350891, 0.2165834903717041, 0.21679866313934326, 0.21996593475341797, 0.2205302119255066, 0.22063326835632324]"
+ 
+file: ,ProgramData/43/1345.txt
+ids: ,"['ProgramData/15/571.txt', 'ProgramData/10/1240.txt', 'ProgramData/75/316.txt', 'ProgramData/84/3999.txt', 'ProgramData/84/3243.txt', 'ProgramData/84/4143.txt', 'ProgramData/84/2540.txt', 'ProgramData/84/91.txt', 'ProgramData/20/1002.txt', 'ProgramData/84/4001.txt']"
+distances: ,"[0.2459842562675476, 0.24647390842437744, 0.24967414140701294, 0.25006812810897827, 0.252338707447052, 0.25528520345687866, 0.25548648834228516, 0.25717389583587646, 0.2580842971801758, 0.25874030590057373]"
+ 
+file: ,ProgramData/31/180.txt
+ids: ,"['ProgramData/31/85.txt', 'ProgramData/31/118.txt', 'ProgramData/31/485.txt', 'ProgramData/31/147.txt', 'ProgramData/31/1720.txt', 'ProgramData/31/1839.txt', 'ProgramData/31/1983.txt', 'ProgramData/31/302.txt', 'ProgramData/31/1270.txt', 'ProgramData/31/1523.txt']"
+distances: ,"[0.1342516541481018, 0.14831268787384033, 0.14887475967407227, 0.14991021156311035, 0.15027040243148804, 0.15328365564346313, 0.1549358367919922, 0.1551188826560974, 0.1559651494026184, 0.1574723720550537]"
+ 
+file: ,ProgramData/65/1074.txt
+ids: ,"['ProgramData/65/484.txt', 'ProgramData/65/1001.txt', 'ProgramData/65/1023.txt', 'ProgramData/65/1100.txt', 'ProgramData/65/1040.txt', 'ProgramData/65/351.txt', 'ProgramData/65/490.txt', 'ProgramData/65/252.txt', 'ProgramData/65/11.txt', 'ProgramData/65/1057.txt']"
+distances: ,"[0.1479099988937378, 0.1530766487121582, 0.15534085035324097, 0.1555461883544922, 0.15704751014709473, 0.15770727396011353, 0.158643901348114, 0.16267049312591553, 0.16313576698303223, 0.16360121965408325]"
+ 
+file: ,ProgramData/54/73.txt
+ids: ,"['ProgramData/37/476.txt', 'ProgramData/54/939.txt', 'ProgramData/13/371.txt', 'ProgramData/43/1849.txt', 'ProgramData/54/162.txt', 'ProgramData/84/1808.txt', 'ProgramData/45/285.txt', 'ProgramData/54/309.txt', 'ProgramData/54/1073.txt', 'ProgramData/42/565.txt']"
+distances: ,"[0.1621779203414917, 0.17647427320480347, 0.1778910756111145, 0.17887639999389648, 0.17961984872817993, 0.1810176968574524, 0.18248051404953003, 0.18267279863357544, 0.18290096521377563, 0.18352633714675903]"
+ 
+file: ,ProgramData/53/271.txt
+ids: ,"['ProgramData/53/441.txt', 'ProgramData/53/1700.txt', 'ProgramData/53/609.txt', 'ProgramData/53/98.txt', 'ProgramData/13/432.txt', 'ProgramData/47/3677.txt', 'ProgramData/47/619.txt', 'ProgramData/53/79.txt', 'ProgramData/53/903.txt', 'ProgramData/94/741.txt']"
+distances: ,"[0.1529431939125061, 0.15870589017868042, 0.16079610586166382, 0.16103893518447876, 0.16476106643676758, 0.1671081781387329, 0.16860944032669067, 0.16928577423095703, 0.169356107711792, 0.170121431350708]"
+ 
+file: ,ProgramData/37/1120.txt
+ids: ,"['ProgramData/19/1748.txt', 'ProgramData/100/2403.txt', 'ProgramData/19/337.txt', 'ProgramData/36/1167.txt', 'ProgramData/100/304.txt', 'ProgramData/20/283.txt', 'ProgramData/96/267.txt', 'ProgramData/37/912.txt', 'ProgramData/36/329.txt', 'ProgramData/37/442.txt']"
+distances: ,"[0.21952831745147705, 0.22268611192703247, 0.22339081764221191, 0.22387611865997314, 0.22477924823760986, 0.2252299189567566, 0.2256487011909485, 0.22660189867019653, 0.2270292043685913, 0.22755146026611328]"
+ 
+file: ,ProgramData/101/475.txt
+ids: ,"['ProgramData/101/428.txt', 'ProgramData/101/20.txt', 'ProgramData/101/537.txt', 'ProgramData/101/412.txt', 'ProgramData/101/320.txt', 'ProgramData/101/500.txt', 'ProgramData/101/1040.txt', 'ProgramData/101/1067.txt', 'ProgramData/101/554.txt', 'ProgramData/101/664.txt']"
+distances: ,"[0.13785111904144287, 0.171164870262146, 0.17182296514511108, 0.17267286777496338, 0.17991644144058228, 0.18106627464294434, 0.18133407831192017, 0.18236243724822998, 0.18253862857818604, 0.18594640493392944]"
+ 
+file: ,ProgramData/90/1852.txt
+ids: ,"['ProgramData/43/43.txt', 'ProgramData/65/217.txt', 'ProgramData/15/2114.txt', 'ProgramData/52/2168.txt', 'ProgramData/43/622.txt', 'ProgramData/90/1849.txt', 'ProgramData/43/281.txt', 'ProgramData/61/713.txt', 'ProgramData/90/1881.txt', 'ProgramData/43/611.txt']"
+distances: ,"[0.18526679277420044, 0.1898379921913147, 0.19248920679092407, 0.19249778985977173, 0.19266492128372192, 0.19475990533828735, 0.19678974151611328, 0.19691890478134155, 0.19886940717697144, 0.19908487796783447]"
+ 
+file: ,ProgramData/23/241.txt
+ids: ,"['ProgramData/17/1133.txt', 'ProgramData/17/1124.txt', 'ProgramData/19/1475.txt', 'ProgramData/49/1142.txt', 'ProgramData/24/2241.txt', 'ProgramData/20/119.txt', 'ProgramData/23/1242.txt', 'ProgramData/49/877.txt', 'ProgramData/28/1381.txt', 'ProgramData/28/1552.txt']"
+distances: ,"[0.13703423738479614, 0.1396518349647522, 0.14065665006637573, 0.1421169638633728, 0.14552301168441772, 0.1478872299194336, 0.15075773000717163, 0.1540384292602539, 0.15574932098388672, 0.1569322943687439]"
+ 
+file: ,ProgramData/40/2978.txt
+ids: ,"['ProgramData/5/1241.txt', 'ProgramData/5/680.txt', 'ProgramData/5/604.txt', 'ProgramData/5/626.txt', 'ProgramData/5/786.txt', 'ProgramData/34/3140.txt', 'ProgramData/5/726.txt', 'ProgramData/34/3148.txt', 'ProgramData/28/241.txt', 'ProgramData/22/726.txt']"
+distances: ,"[0.32914018630981445, 0.331781804561615, 0.3324139714241028, 0.33307504653930664, 0.33624595403671265, 0.3394984006881714, 0.339499294757843, 0.3396267890930176, 0.3398740291595459, 0.3402975797653198]"
+ 
+file: ,ProgramData/14/275.txt
+ids: ,"['ProgramData/14/1514.txt', 'ProgramData/14/853.txt', 'ProgramData/14/1462.txt', 'ProgramData/14/328.txt', 'ProgramData/14/224.txt', 'ProgramData/14/515.txt', 'ProgramData/14/1270.txt', 'ProgramData/14/1054.txt', 'ProgramData/14/225.txt', 'ProgramData/14/226.txt']"
+distances: ,"[0.12015902996063232, 0.12051653861999512, 0.12472504377365112, 0.1327427625656128, 0.1359090805053711, 0.1364750862121582, 0.1462026834487915, 0.15089941024780273, 0.1512312889099121, 0.15311574935913086]"
+misses:
+72
