@@ -4,6 +4,7 @@ GCJ2-4/
 POJ/
 chroma_db/
 embedding_cache/
+embedding_cache_voyage/
 .venv/
 nohup.out
 src/__pycache__
