@@ -1,3 +1,4 @@
+Embedding Model,k,context window size,Mean Average Precision
 ordis/jina-embeddings-v2-base-code,10,8192,0.9640953724477699
 ordis/jina-embeddings-v2-base-code,50,8192,0.9054771523312285
 ordis/jina-embeddings-v2-base-code,100,8192,0.8730981188084369

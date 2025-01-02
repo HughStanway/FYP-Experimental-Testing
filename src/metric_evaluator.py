@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Define a list of filenames
-FILENAMES = ["memory_usage_weaviate_2024:12:11-llama3.2-add.csv",
-             "memory_usage_weaviate_2024:12:11-ordis-jina-embeddings-v2-base-code-add.csv"]
+FILENAMES = ["memory_usage_qdrant_2024:12:27-llama3.2-add.csv",
+             "memory_usage_qdrant_2024:12:27-ordis-jina-embeddings-v2-base-code-add.csv"]
 
 DESCRIPTIONS = ["Pre-embed and add to collection using llama2.3 embedding",
                 "Pre-embed and add to collection using jina-embeddings-v2-base-code embedding"]
@@ -23,14 +23,6 @@ fig, axes = plt.subplots(1, num_files, figsize=(8 * num_files, 6), sharey=True)
 for i, filename in enumerate(FILENAMES):
     csv_filename = f"metrics/memory_usage/{filename}"
     df = pd.read_csv(csv_filename)
-
-    # Optinally filter out the outliers for execution time
-    if REMOVE_OUTLIERS:
-        mean_execution_time = df['Execution Time (seconds)'].mean()
-        std_execution_time = df['Execution Time (seconds)'].std()
-
-        df = df[(df['Execution Time (seconds)'] >= mean_execution_time - std_execution_time) & 
-                (df['Execution Time (seconds)'] <= mean_execution_time + std_execution_time)]
 
     # Extract the data for plotting execution time
     x_execution = df['Database Size']
