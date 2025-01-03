@@ -11,20 +11,20 @@ from pathlib import Path
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
 import diskcache as dc
-from datetime import datetime
 from ollama import Client 
 import tracemalloc
 import psutil
 from tqdm import tqdm
 from rich import print
+import voyageai
 
 COLLECTION_NAME = "POJ_DATASET_qdrant_test"
-EMBED_MODEL = "ordis/jina-embeddings-v2-base-code"
+EMBED_MODEL = "voyage-code-3"
 COSINE_SEACH_N = 100
-DIMENSION = 768
-ctx_window_sizes = [8192, 6144, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8]
+DIMENSION = 1024
 
-cache = dc.Cache('embedding_cache')
+vo = voyageai.Client()
+cache = dc.Cache('embedding_cache_voyage')
 client = QdrantClient(url="http://localhost:6333")
 ollama_client = Client(host='http://localhost:11434')
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -37,6 +37,15 @@ def compute_embedding(file_text, embed_model):
     embeddings = ollama_client.embed(model=embed_model, input=file_text)['embeddings']
     cache[hashed_key] = embeddings
     return embeddings
+
+def compute_voyageai_embedding(file_text, embed_model):
+    key = f"{file_text}-{embed_model}"
+    hashed_key = hashlib.sha256(key.encode()).hexdigest()
+    if hashed_key in cache:
+        return cache[hashed_key]
+    query_embedding = vo.embed([file_text], model=embed_model, input_type="query").embeddings[0]
+    cache[hashed_key] = query_embedding
+    return query_embedding
 
 def measure_memory_usage(func, *args, **kwargs):
     tracemalloc.start()
@@ -134,14 +143,14 @@ if __name__=="__main__":
         print("[yellow]Collection created successfully.[/yellow]")
     except Exception as e:
         print(f"[red]Error creating collection: {e}[/red]")
-    
+    '''
     # Initialize CSV and write header to record results to
     timestamp = datetime.now().strftime("%Y:%m:%d")
     csv_filename = f'metrics/memory_usage/memory_usage_qdrant_{timestamp}-{EMBED_MODEL.replace("/", "-")}-add.csv'
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(['Query','File Path','Memory Usage (MB)'])
-    
+    '''
     progress_bar = tqdm(total=52000, desc="Building database")
     id = 0
     for file_path in directory.rglob('*'):
@@ -152,16 +161,10 @@ if __name__=="__main__":
 
                 # Create embedding for text
                 start_time = time.time()
-                embeddings = compute_embedding(file_text, EMBED_MODEL).pop()
+                embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL)
                 elapsed_time = time.time() - start_time
 
-                #add_to_collection_using_embeddings(embeddings=embeddings, file_path=str(file_path), id=id)
-
-                result, peak_memory = measure_memory_usage(add_to_collection_using_embeddings, embeddings, str(file_path), id)
-
-                with open(csv_filename, 'a', newline='') as csvfile:
-                    csv_writer = csv.writer(csvfile)
-                    csv_writer.writerow([id, file_path, peak_memory])
+                add_to_collection_using_embeddings(embeddings=embeddings, file_path=str(file_path), id=id)
                 
                 id += 1
                 progress_bar.set_postfix({"Embedding time": elapsed_time})
@@ -170,7 +173,7 @@ if __name__=="__main__":
             except Exception as e:
                 print(f"Error adding to collection: {e}")
     progress_bar.close()
-    '''
+    
     progress_bar = tqdm(total=52000, desc="Testing database")
     total_ap = {
         10:0,
@@ -187,7 +190,7 @@ if __name__=="__main__":
 
                 # Create embedding for text
                 start_time = time.time()
-                embeddings = compute_embedding(file_text, EMBED_MODEL).pop()
+                embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL)
                 elapsed_time = time.time() - start_time
                 
                 for k in [10,50,100,300]:
@@ -209,5 +212,6 @@ if __name__=="__main__":
         for k in [10,50,100,300]:
             mean_ap = total_ap[k] / queries
             csv_writer.writerow([EMBED_MODEL, k, 8192, mean_ap])
-    '''
+    
+    print(total_ap)
     print("[yellow]Indexing complete.[/yellow]")
