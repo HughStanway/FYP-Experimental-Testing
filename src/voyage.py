@@ -3,45 +3,39 @@
 import voyageai
 import hashlib
 import csv
-import traceback
 import diskcache as dc
-import sys
 from pathlib import Path
 import time
 from tqdm import tqdm
-import chromadb
+from pymilvus import MilvusClient
 from rich import print
-import tracemalloc
+from ollama import Client 
+import sys
 
 vo = voyageai.Client()
 cache = dc.Cache('embedding_cache_voyage')
-client = chromadb.HttpClient(host='localhost', port=8000)
+client = MilvusClient(uri="http://localhost:19530")
+ollama_client = Client(host='http://localhost:11434')
 
-EMBED_MODEL = "voyage-code-3"
+EMBED_MODEL ="voyage-code-3"
 COLLECTION_NAME = "Voyageai_test"
 
-def compute_voyageai_embedding(file_text, embed_model):
-    key = f"{file_text}-{embed_model}"
+def compute_voyageai_embedding(file_text, embed_model, output_dimension):
+    key = f"{file_text}-{embed_model}-{output_dimension}"
     hashed_key = hashlib.sha256(key.encode()).hexdigest()
     if hashed_key in cache:
         return cache[hashed_key]
-    query_embedding = vo.embed([file_text], model=embed_model, input_type="query").embeddings[0]
+    query_embedding = vo.embed([file_text], model=embed_model, input_type="query", output_dimension=output_dimension).embeddings[0]
     cache[hashed_key] = query_embedding
     return query_embedding
 
-def measure_memory_usage(func, *args, **kwargs):
-    tracemalloc.start()
-    result = func(*args, **kwargs)
-    current, peak = tracemalloc.get_traced_memory() # in bytes
-    tracemalloc.stop()
-
-    return result, peak
-
 def query_using_embeddings(embeddings, k):
     try:
-        return collection.query(
-            query_embeddings=embeddings,
-            n_results=k,
+        return client.search(
+            collection_name=COLLECTION_NAME,
+            data=[embeddings],
+            limit=k,
+            search_params={"metric_type": "COSINE", "params": {}},
         )
 
     except Exception as e:
@@ -49,9 +43,9 @@ def query_using_embeddings(embeddings, k):
 
 def add_to_collection_using_embeddings(embeddings, file_path):
     try:
-        collection.add(
-            embeddings=embeddings,
-            ids=[file_path]
+        client.insert(
+            collection_name=COLLECTION_NAME,
+            data={"id": file_path, "vector": embeddings}
         )
     except Exception as e:
         print(f"Error adding to collection: {e}")
@@ -77,86 +71,94 @@ def average_precision(query_path, results):
     # Average precision = mean of precision scores at ranks where relevant items appear
     return sum(precision_scores) / n_relevant
 
+def extract_ids(results):
+    ids = []
+    for res in results:
+        ids.append(res['id'])
+    return ids
+
 if __name__=="__main__":
-    path=sys.argv[1]
+    path = sys.argv[1]
     directory = Path(path)
+    file_extension = ".txt"
     
-    # Check if the collection exists
-    if any(col.name == COLLECTION_NAME for col in client.list_collections()):
-        client.delete_collection(COLLECTION_NAME)
-        print(f"Collection, '{COLLECTION_NAME}' existed and has been dropped.")
-    
-    # Create a fresh collection to test
-    try:
-        collection = client.create_collection(
-            name=COLLECTION_NAME,
-            metadata={
-                "hnsw:search_ef": 100,
-                "hnsw:space": "cosine"
-            },
-        )
-        print("Collection created successfully.")
-    except Exception as e:
-        print(f"Error creating collection: {e}")
+    for output_dimension in [256, 512, 1024, 2048]:
+        print(f"[bold green]Running mAP tests for output dimension: {output_dimension}")
         
-    progress_bar = tqdm(total=52000, desc="Building database")
-    for file_path in directory.rglob('*'):
-        if file_path.is_file() and file_path.suffix == '.txt':
-            try:
-                with open(file_path, 'r', encoding='iso8859-1') as f: 
-                    file_text = f.read()
+        # Check if the collection exists
+        if any(col == COLLECTION_NAME for col in client.list_collections()):
+            client.drop_collection(collection_name=COLLECTION_NAME)
+            print(f"[yellow][-] Collection, '{COLLECTION_NAME}' existed and has been dropped.[/yellow]")
+        
+        # Create a fresh collection to test
+        try:
+            client.create_collection(
+                collection_name=COLLECTION_NAME,
+                dimension=output_dimension,
+                id_type="string",
+                max_length=512
+            )
+            print(f"[yellow][-] New collection: {COLLECTION_NAME} created successfully.[/yellow]")
+        except Exception as e:
+            print(f"Error creating collection: {e}")
 
-                start_time = time.time()
-                embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL)
-                elapsed_time = time.time() - start_time
-
-                add_to_collection_using_embeddings(embeddings=embeddings, file_path=str(file_path))
-                progress_bar.set_postfix({"Embedding time": elapsed_time})
-                progress_bar.update(1)
-
-            except Exception as e:
-                print(f"Error adding to collection: {e}")
-    progress_bar.close()
-    
-    progress_bar = tqdm(total=52000, desc="Testing database")
-    total_ap = {
-        10:0,
-        50:0,
-        100:0,
-        300:0,
-    }
-    queries = 0
-    for file_path in directory.rglob('*'):
-        if file_path.is_file() and file_path.suffix == '.txt':
-            try:
-                with open(file_path, 'r', encoding='iso8859-1') as f: 
-                    file_text = f.read()
-
-                # Create embedding for text
-                start_time = time.time()
-                embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL)
-                elapsed_time = time.time() - start_time
-                
-                for k in [10, 50, 100, 300]:
-                    results = query_using_embeddings(embeddings=embeddings, k=k) 
-                    result_paths = results['ids'][0]
-
-                    total_ap[k] += average_precision(str(file_path), result_paths)
+        progress_bar = tqdm(total=52000, desc="Building database")
+        for file_path in directory.rglob('*'):
+            if file_path.is_file() and file_path.suffix == file_extension:
+                try:
+                    with open(file_path, 'r', encoding='iso8859-1') as f: 
+                        file_text = f.read()
                     
-                progress_bar.set_postfix({"Embedding time": elapsed_time})
-                progress_bar.update(1)
-                queries += 1
-                
-            except Exception as e:
-                print(f"Error testing collection: {e}")
-                traceback.print_exc() 
-    progress_bar.close()
-    
-    with open("metrics/precision/mean_ap_at_k_chroma.csv", 'a', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        for k in [10,50,100,300]:
-            mean_ap = total_ap[k] / queries
-            csv_writer.writerow([EMBED_MODEL, k, 8192, mean_ap])
-    
-    print(total_ap)
+                    start_time = time.time()
+                    embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL, output_dimension)
+                    elapsed_time = time.time() - start_time
+
+                    add_to_collection_using_embeddings(embeddings=embeddings, file_path=str(file_path))
+                    progress_bar.set_postfix({"Embedding time": elapsed_time})
+                    progress_bar.update(1)
+
+                except Exception as e:
+                    print(f"Error adding to collection: {e}")
+        progress_bar.close()
+        
+        progress_bar = tqdm(total=52000, desc="Testing database")
+        total_ap = {
+            10:0,
+            50:0,
+            100:0,
+            300:0,
+        }
+        queries = 0
+        for file_path in directory.rglob('*'):
+            if file_path.is_file() and file_path.suffix == file_extension:
+                try:
+                    with open(file_path, 'r', encoding='iso8859-1') as f: 
+                        file_text = f.read()
+
+                    # Create embedding for text
+                    start_time = time.time()
+                    embeddings = compute_voyageai_embedding(file_text, EMBED_MODEL, output_dimension)
+                    elapsed_time = time.time() - start_time
+                    
+                    for k in [10, 50, 100, 300]:
+                        results = query_using_embeddings(embeddings=embeddings, k=k).pop()
+                        result_paths = extract_ids(results)
+
+                        total_ap[k] += average_precision(str(file_path), result_paths)
+                        
+                    progress_bar.set_postfix({"Embedding time": elapsed_time})
+                    progress_bar.update(1)
+                    queries += 1
+                    
+                except Exception as e:
+                    print(f"Error testing collection: {e}")
+        progress_bar.close()
+        
+        with open("metrics/precision/mean_ap_at_k_milvus_voyage_output_dimension.csv", 'a', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            for k in [10,50,100,300]:
+                mean_ap = total_ap[k] / queries
+                print(f"mAP@{k}: {mean_ap}")
+                csv_writer.writerow([EMBED_MODEL, output_dimension, k, mean_ap])
+        
     print("[bold green]Indexing complete.[/bold green]")

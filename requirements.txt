@@ -6,6 +6,6 @@ ollama==0.3.3
 matplotlib==3.9.2
 psutil==6.1.0
 rich==13.9.4
-voyageai==0.2.4
+voyageai==0.3.2
 qdrant-client==1.12.1
 weaviate-client==4.9.6
