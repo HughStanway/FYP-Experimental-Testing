@@ -1,3 +1,4 @@
+Embedding Model,Output Dimension,k,Mean Average Precision
 voyage-code-3,256,10,0.9935414460748676
 voyage-code-3,256,50,0.9873108259303993
 voyage-code-3,256,100,0.9849744568863041

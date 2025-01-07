@@ -1,45 +1,45 @@
 #pylint: skip-file
 
-# Re-importing necessary libraries after reset
+# Importing necessary libraries
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Data for the new embedding model
+# Data for the embedding model
 data = [
-    ("GCJ2-4/GCJ2-4_cpp/data/", 10, 0.9281376680301745),
-    ("GCJ2-4/GCJ2-4_cpp/data/", 50, 0.8051804099506197),
-    ("GCJ2-4/GCJ2-4_cpp/data/", 100, 0.744041963952097),
-    ("GCJ2-4/GCJ2-4_cpp/data/", 300, 0.6385863211978813),
-    ("GCJ2-4/GCJ2-4_java/data/", 10, 0.9110107435015532),
-    ("GCJ2-4/GCJ2-4_java/data/", 50, 0.7410564649455262),
-    ("GCJ2-4/GCJ2-4_java/data/", 100, 0.6640672115173967),
-    ("GCJ2-4/GCJ2-4_java/data/", 300, 0.5529525572631379),
-    ("GCJ2-4/GCJ2-4_php/data/", 10, 0.9019627293263742),
-    ("GCJ2-4/GCJ2-4_php/data/", 50, 0.7506587911286884),
-    ("GCJ2-4/GCJ2-4_php/data/", 100, 0.6786189422032118),
-    ("GCJ2-4/GCJ2-4_php/data/", 300, 0.5583730680350294),
-    ("GCJ2-4/GCJ2-4_py/data/", 10, 0.9354397145373172),
-    ("GCJ2-4/GCJ2-4_py/data/", 50, 0.8269968247554743),
-    ("GCJ2-4/GCJ2-4_py/data/", 100, 0.7721126500050829),
-    ("GCJ2-4/GCJ2-4_py/data/", 300, 0.6669001105983492)
+    ("voyage-code-3", 256, 10, 0.9935414460748676),
+    ("voyage-code-3", 256, 50, 0.9873108259303993),
+    ("voyage-code-3", 256, 100, 0.9849744568863041),
+    ("voyage-code-3", 256, 300, 0.9799543132093224),
+    ("voyage-code-3", 512, 10, 0.9922014533730171),
+    ("voyage-code-3", 512, 50, 0.987305766804373),
+    ("voyage-code-3", 512, 100, 0.9853961586458679),
+    ("voyage-code-3", 512, 300, 0.9813347325416327),
+    ("voyage-code-3", 1024, 10, 0.9932101117676412),
+    ("voyage-code-3", 1024, 50, 0.9877509999535339),
+    ("voyage-code-3", 1024, 100, 0.9857814606804016),
+    ("voyage-code-3", 1024, 300, 0.9816292266846793),
+    ("voyage-code-3", 2048, 10, 0.9927266861960238),
+    ("voyage-code-3", 2048, 50, 0.9877260576773006),
+    ("voyage-code-3", 2048, 100, 0.9857616064556797),
+    ("voyage-code-3", 2048, 300, 0.9817355352151287)
 ]
 
 # Convert to DataFrame
-df_new = pd.DataFrame(data, columns=["Path", "k", "Mean Average Precision"])
+df_new = pd.DataFrame(data, columns=["Embedding Model", "Output Dimension", "k", "Mean Average Precision"])
 
 # Plotting
 plt.figure(figsize=(12, 8))
 
-# Plot each path
-for path in df_new["Path"].unique():
-    subset = df_new[df_new["Path"] == path]
-    plt.plot(subset["k"], subset["Mean Average Precision"], label=path, marker='o')
+# Plot each output dimension
+for dimension in df_new["Output Dimension"].unique():
+    subset = df_new[df_new["Output Dimension"] == dimension]
+    plt.plot(subset["k"], subset["Mean Average Precision"], label=f'Output Dimension {dimension}', marker='o')
 
 # Adding labels and title
 plt.xlabel("k")
 plt.ylabel("Mean Average Precision")
-plt.title("Mean Average Precision vs k using jina-v2-base-code embedding model")
-plt.legend(title="Path")
+plt.title("Mean Average Precision vs k for Different Output Dimensions")
+plt.legend(title="Output Dimension")
 plt.grid(True)
 
 # Show plot
