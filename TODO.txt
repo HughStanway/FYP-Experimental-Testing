@@ -9,3 +9,9 @@ Over Christmas:
 - Chroma, Milvus, Qdrant, Weaviate
 - Context window for jina across all databases
 - map at deafult k
+
+next
+
+- MAP and dave queries
+- starting loonk at report - abstract, motivation, background, setup, results, evalutation and conclusion
+- find papers for the background section: https://ieeexplore.ieee.org/document/9796359
