@@ -5,3 +5,5 @@ Ollama: https://github.com/ollama/ollama
 Stop Ollama: https://github.com/ollama/ollama/issues/690
 Faiss: https://github.com/facebookresearch/faiss
 Milvus Docs: https://milvus.io/docs/manage-collections.md
+
+Seaborn python library
