@@ -5,7 +5,7 @@ import argparse
 import time
 import csv
 import timeit
-import datetime
+from datetime import datetime
 from rich import print
 from tqdm import tqdm
 from pathlib import Path
@@ -70,7 +70,7 @@ if __name__=="__main__":
     parser.add_argument("filepath", type=str, help="Relative filepath to the dataset directory")
     parser.add_argument(
         "--embedding-model",
-        choices=["llama3.2", "ordis/jina-embeddings-v2-base-code", "voyage-code-3"],
+        choices=["llama3.2", "ordis/jina-embeddings-v2-base-code", "voyage-code-3", "deepseek-r1:1.5B"],
         required=True,
         help="Specify the name of the embedding model",
         dest="embedding_model"

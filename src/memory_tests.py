@@ -2,10 +2,11 @@
 
 # Import general libraries 
 import argparse
+import traceback
 import time
 import csv
 import tracemalloc
-import datetime
+from datetime import datetime
 from rich import print
 from tqdm import tqdm
 from pathlib import Path
@@ -13,7 +14,7 @@ from pathlib import Path
 # Import needed classes
 from shared.testsuit import TestSuit
 
-class ExecutionTests(TestSuit):
+class MemoryTests(TestSuit):
     def __init__(self, args: argparse.Namespace) -> None:
         super().__init__(args)
         
@@ -29,7 +30,7 @@ class ExecutionTests(TestSuit):
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow([db_size, file_path, memory_usage])
 
-    def measure_memory_usage(func, *args, **kwargs):
+    def measure_memory_usage(self, func, *args, **kwargs):
         tracemalloc.start()
         result = func(*args, **kwargs)
         current, peak = tracemalloc.get_traced_memory() # in bytes
@@ -55,7 +56,7 @@ class ExecutionTests(TestSuit):
                     
                     # Test execution time
                     if self.args.operation == "add":
-                        _, memory_usage = self.measure_memory_usage(self.add_to_collection_using_embeddings, embeddings, str(file_path))
+                        _, memory_usage = self.measure_memory_usage(self.add_to_collection_using_embeddings, embeddings, str(file_path), db_size)
                     else:
                         self.add_to_collection_using_embeddings(embeddings, str(file_path), db_size)
                         _, memory_usage = self.measure_memory_usage(self.query_collection_using_embeddings, embeddings, 10)
@@ -67,6 +68,7 @@ class ExecutionTests(TestSuit):
                     progress_bar.update(1)
 
                 except Exception as e:
+                    print(traceback.format_exc())
                     print(f"Error: {e}")
         progress_bar.close()
 
@@ -78,7 +80,7 @@ if __name__=="__main__":
     parser.add_argument("filepath", type=str, help="Relative filepath to the dataset directory")
     parser.add_argument(
         "--embedding-model",
-        choices=["llama3.2", "ordis/jina-embeddings-v2-base-code", "voyage-code-3"],
+        choices=["llama3.2", "ordis/jina-embeddings-v2-base-code", "voyage-code-3", "deepseek-r1:1.5B"],
         required=True,
         help="Specify the name of the embedding model",
         dest="embedding_model"
@@ -98,4 +100,4 @@ if __name__=="__main__":
         dest="operation"
     )
     args = parser.parse_args()
-    ExecutionTests(args=args).run()
+    MemoryTests(args=args).run()

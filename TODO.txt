@@ -15,3 +15,8 @@ next
 - MAP and save queries
 - starting loonk at report - abstract, motivation, background, setup, results, evalutation and conclusion
 - find papers for the background section: https://ieeexplore.ieee.org/document/9796359
+
+next
+
+- MAP@k GCJ2-4 with llama3.2 and deepseek-r1 models
+- Precision GCJ2-4 dataset all models

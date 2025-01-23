@@ -36,7 +36,8 @@ class TestSuit(ABC):
     DIMENSIONS = {
         "llama3.2": 3072,
         "ordis/jina-embeddings-v2-base-code": 768,
-        "voyage-code-3": 1024
+        "voyage-code-3": 1024,
+        "deepseek-r1:1.5B": 1536,
     }
 
     def __init__(self, args: argparse.Namespace) -> None:
@@ -157,7 +158,7 @@ class TestSuit(ABC):
         
         if self.args.embedding_model == "voyage-code-3":
             query_embedding = vo.embed([file_text], model=self.args.embedding_model, input_type="query").embeddings[0]
-            cache[hashed_key] = query_embedding
+            cache_voyage[hashed_key] = query_embedding
         else:
             embeddings = ollama_client.embed(model=self.args.embedding_model, input=file_text)['embeddings'].pop()
             cache[hashed_key] = embeddings
