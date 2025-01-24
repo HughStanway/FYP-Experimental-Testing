@@ -5,6 +5,7 @@ import re
 import json
 
 filepath = "metrics/accuracy/GCJ2-4_py"
+scores = "map"
 
 data = {}
 
@@ -31,16 +32,16 @@ for file_path in directory.rglob('*'):
         map_value = round(float(map_match.group(1)), 4) if map_match else None
         precision_value = round(float(precision_match.group(1)), 4) if precision_match else None
 
-        #print("MAP:", map_value)
-        #print("Precision:", precision_value)
-
         if database not in data.keys():
             data[database] = {}
 
         if embedding_model not in data[database]:
             data[database][embedding_model] = {}
         
-        data[database][embedding_model][int(k)] = map_value
+        if scores == "map":
+            data[database][embedding_model][int(k)] = map_value
+        else:
+            data[database][embedding_model][int(k)] = precision_value
 
 for db_name, embeddings in data.items():
     for embedding_name, values in embeddings.items():
