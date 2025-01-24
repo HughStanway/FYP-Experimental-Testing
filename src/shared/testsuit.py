@@ -157,8 +157,8 @@ class TestSuit(ABC):
             return cache_voyage[hashed_key]
         
         if self.args.embedding_model == "voyage-code-3":
-            query_embedding = vo.embed([file_text], model=self.args.embedding_model, input_type="query").embeddings[0]
-            cache_voyage[hashed_key] = query_embedding
+            embeddings = vo.embed([file_text], model=self.args.embedding_model, input_type="query").embeddings[0]
+            cache_voyage[hashed_key] = embeddings
         else:
             embeddings = ollama_client.embed(model=self.args.embedding_model, input=file_text)['embeddings'].pop()
             cache[hashed_key] = embeddings

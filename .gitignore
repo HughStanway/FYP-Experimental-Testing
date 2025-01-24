@@ -8,3 +8,5 @@ embedding_cache_voyage/
 .venv/
 nohup.out
 src/__pycache__
+!metrics/accuracy/POJ/
+!metrics/accuracy/GCJ2-4_*/

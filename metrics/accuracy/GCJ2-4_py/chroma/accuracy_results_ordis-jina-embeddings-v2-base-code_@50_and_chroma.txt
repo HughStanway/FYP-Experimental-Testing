@@ -1,0 +1,7 @@
+Mean Average Precision (MAP) = 0.826780063653812
+True Positives = 415393
+False Positives = 165057
+Number of queries = 11609
+Number of answers = 580450
+Expected number of answers = 580450
+Precision = 0.7156395899732966
