@@ -154,15 +154,5 @@ if __name__=="__main__":
         dest="database"
     )
 
-    '''
-    for filepath in ["GCJ2-4_cpp", "GCJ2-4_java", "GCJ2-4_php", "GCJ2-4_py"]:
-        for database in["chroma", "milvus", "weaviate", "qdrant"]:
-            print(f"TESTING: {filepath} and {database}")
-            args = argparse.Namespace(
-                filepath=filepath,  # Replace with your actual dataset directory path
-                embedding_model="deepseek-r1:1.5B",  # Replace with your desired embedding model
-                database=database  # Replace with your desired vector database
-            )
-    '''
     args = parser.parse_args()
     AccuracyTests(args=args).run()
