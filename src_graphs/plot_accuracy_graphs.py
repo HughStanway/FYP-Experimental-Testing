@@ -5,49 +5,56 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from extract_accuracy_scores import get_accuracy_scores
 
+filepath = "metrics/accuracy/GCJ2-4_py"
+data = get_accuracy_scores(filepath)
+
 sns.set_theme(style="ticks")
+sns.set_context("notebook", font_scale=1.2) 
 
-filepath = "metrics/accuracy/GCJ2-4_cpp"
-data = get_accuracy_scores(filepath)["qdrant"]
+x_points = [10, 50, 100, 300]
 
-# Convert the nested dictionary to a tidy DataFrame
 def tidy_nested_data(data):
     records = []
-    for method, metrics in data.items():
-        if method == "ordis-jina-embeddings-v2-base-code":
-            method = "jina-v2"
-        for metric, values in metrics.items():
-            for x, value in enumerate(values):
-                records.append({"x": x, "method": method, "metric": metric, "value": value})
+    for db, models in data.items():
+        for model, metrics in models.items():
+            method = "jina-v2-base-code" if model == "ordis-jina-embeddings-v2-base-code" else model
+            for metric, values in metrics.items():
+                if metric == "MAP":  # Only store MAP values
+                    for i, value in enumerate(values):
+                        records.append({"x": x_points[i], "database": db, "method": method, "metric": metric, "value": value})
     return pd.DataFrame(records)
 
 df = tidy_nested_data(data)
 
-# Create subplots for Precision and MAP
-fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+# Set order for methods
+method_order = ["voyage-code-3", "jina-v2-base-code", "deepseek-r1:1.5B", "llama3.2"]
+df = df.sort_values(by="method", key=lambda x: x.map({m: i for i, m in enumerate(method_order)}))
 
-# Plot for Precision
-sns.lineplot(ax=axes[0], data=df[df["metric"] == "Precision"], x="x", y="value", hue="method", style="method", markers=True, legend=False)
-axes[0].set_title("Precision Against Rank k")
-axes[0].set_xlabel("Rank k")
-axes[0].set_ylabel("Precision")
-axes[0].grid(axis='y', linestyle='--')
+# Create 2x2 subplots
+fig, axes = plt.subplots(2, 2, figsize=(14, 12), sharex=True, sharey=True)
+axes = axes.flatten()
+db_names = ["chroma", "qdrant", "weaviate", "milvus"]
 
-# Plot for MAP
-sns.lineplot(ax=axes[1], data=df[df["metric"] == "MAP"], x="x", y="value", hue="method", style="method", markers=True, legend=True)
-axes[1].set_title("Mean Average Precision Against Rank k")
-axes[1].set_xlabel("Rank k")
-axes[1].set_ylabel("MAP")
-axes[1].grid(axis='y', linestyle='--')
-axes[1].legend(title="Model", loc="lower left")
+for i, db in enumerate(db_names):
+    ax = axes[i]
+    sns.lineplot(ax=ax, data=df[df["database"] == db], x="x", y="value", hue="method", style="method", markers=True)
+    if db == "chroma":
+        ax.set_title(f"{db.capitalize()}db")
+    else:
+        ax.set_title(f"{db.capitalize()}")
+    ax.set_xlabel("Rank k")
+    ax.set_ylabel("MAP")
+    ax.grid(axis='y', linestyle='--')
+    legend = ax.legend(loc="lower left")
+    legend.get_title().set_fontsize(14)
+    for text in legend.get_texts():
+        text.set_fontsize(12)
 
-# Set y-axis limits and ticks to be between 0 and 1 with a step of 0.1
-axes[0].set_ylim(0, 1.1)
-axes[1].set_ylim(0, 1.1)
-axes[0].set_yticks([i / 10 for i in range(12)])  # Y-ticks from 0 to 1 with a step of 0.1
-axes[1].set_yticks([i / 10 for i in range(12)])  # Y-ticks from 0 to 1 with a step of 0.1
+# Set y-axis limits and ticks
+for ax in axes:
+    ax.set_ylim(0, 1.1)
+    ax.set_yticks([i / 10 for i in range(12)])
 
-
-# Adjust layout and show the plot
+plt.tight_layout()
 plt.show()
 

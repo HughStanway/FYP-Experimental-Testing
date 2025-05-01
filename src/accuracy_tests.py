@@ -57,7 +57,7 @@ class AccuracyTests(TestSuit):
             if not os.path.exists(path):
                 os.makedirs(path)
                 print(f"Created directory: {path}")
-            file_name = f"accuracy_results_{self.args.embedding_model.replace("/", "-")}_@{metric.k}_and_{self.args.database}.txt"
+            file_name = f"accuracy_results_FAISS_{self.args.embedding_model.replace("/", "-")}_@{metric.k}_and_{self.args.database}.txt"
             with open(path + file_name, "w") as f:
                 f.write(f"Mean Average Precision (MAP) = {metric.get_map()}\n")
                 f.write(f"True Positives = {metric.true_positives}\n")

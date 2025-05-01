@@ -3,6 +3,7 @@
 # Import general libraries 
 import argparse
 import sys
+import os
 import hashlib
 import diskcache as dc
 from rich import print
@@ -22,6 +23,12 @@ from qdrant_client.models import VectorParams, Distance, PointStruct
 
 # Import needed classes
 from dataclass.database import Database
+
+"""
+Check voyage api key is set
+"""
+API_KEY = "pa-70TF9Ya_nFCmr3IurjGEIODngniW5tA-gOooXMw4mkn"
+os.environ["VOYAGE_API_KEY"] = API_KEY
 
 """
 Initialise ollama client, voyage client and caches

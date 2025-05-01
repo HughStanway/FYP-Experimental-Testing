@@ -20,3 +20,16 @@ next
 
 - MAP@k GCJ2-4 with llama3.2 and deepseek-r1 models
 - Precision GCJ2-4 dataset all models
+
+next
+
+- remove memory from report - DONE
+- only plot tables with line of best fit for execution time - DONE
+- remove Precision - DONE (except appendix)
+- 'cherry pick' good raw graphs - DONE
+- finish discussion for execution time - DONE
+- chroma linear when not caching?
+- talk about chroma having no overhead as it runs in memory - DONE
+- false positive problem
+- time embedding times report on average
+- scatter plots have outliers - DONE
