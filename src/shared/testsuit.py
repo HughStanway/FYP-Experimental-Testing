@@ -27,7 +27,7 @@ from dataclass.database import Database
 """
 Check voyage api key is set
 """
-API_KEY = "pa-70TF9Ya_nFCmr3IurjGEIODngniW5tA-gOooXMw4mkn"
+API_KEY = ""
 os.environ["VOYAGE_API_KEY"] = API_KEY
 
 """
